@@ -107,3 +107,6 @@ venv.bak/
 venv
 
 db.sqlite3
+
+# Visual Studio Code settings
+.vscode
