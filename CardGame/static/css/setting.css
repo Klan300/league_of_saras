@@ -6,6 +6,10 @@ h2 {
     color: rgb(180, 12, 12);
 }
 
+.play_button {
+    align-content: center;
+}
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;
