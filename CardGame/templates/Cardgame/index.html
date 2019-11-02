@@ -1,12 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="utf-8">
+
+  <title>My fake blog!</title>
+
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
 </head>
 <body>
-    
+{% if user.is_authenticated %}
+    <p  class="text-black">Logged in as {{ user.username }}</p>
+      <a href="{% url "logout" %}">Logout</a>
+  {% else %}
+    <i class="fab fa-google" ></i>
+    <a href="{% url "social:begin" "google-oauth2" %}">Sign in with Google</a>
+  {% endif %}
 </body>
 </html>
