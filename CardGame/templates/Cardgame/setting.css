@@ -1,3 +1,11 @@
+body {
+    background-color: #5f9b9e;  
+}
+
+h2 {
+    color: rgb(180, 12, 12);
+}
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;
@@ -60,3 +68,4 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+

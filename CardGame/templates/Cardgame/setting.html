@@ -1,31 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bootstrap Example</title>
+    <title>Setting</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="setting.css">
+    <link rel="stylesheet" href="setting.css">
 </head>
 
-<body class="bg-warning">
+<body>
 
     <div class="container">
-        <h1 class="display-2 text-center">Setting</h1>
+        <br />
+        <h1 class="text-center">Setting</h1>
+        <br/>
+        <br/>
     </div>
 
-    
-    <div class="row">
-        <div class="col">
-            <h2 align="center">Sound</h2>
-        </div>
-        <div class="col">
-            <label class="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </label>
-        </div>
+    <div style="background-color: grey;border-radius: 8px;" class="box_table">
+        <table class="table table-borderless container">    
+            <tr>
+                <td><h2 align="left">Time Duration</h2></td>
+                <td>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="option1" autocomplete="off"> 45
+                        </label>
+                        <label class="btn btn-secondary active">
+                            <input type="radio" name="options" id="option2" autocomplete="off" checked> 60
+                        </label>
+                        <label class="btn btn-secondary">
+                            <input type="radio" name="options" id="option3" autocomplete="off"> 90
+                        </label>
+                    </div>
+                </td>
+            <tr>
+                <td><h2 align="left" text>Sound</h2></td>
+                <td><h2 align="left">
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label></h2>
+                </td>
+            </tr>
+        </table>
     </div>
 
 </body>
