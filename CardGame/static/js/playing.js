@@ -1,3 +1,8 @@
+
+
+
+
+
 var timeleft = 10;
 var downloadTimer = setInterval(function(){
   document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
@@ -7,3 +12,5 @@ var downloadTimer = setInterval(function(){
     document.getElementById("countdown").innerHTML = "Game over"
   }
 }, 1000);
+
+

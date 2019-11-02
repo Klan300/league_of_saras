@@ -11,29 +11,48 @@
 <link rel="stylesheet" href="{% static 'css/playing.css'%}">
 
 
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<script src="{% static 'js/playing.js'%}"></script>
 </head>
 <body>
     <div class="wrapper">
         <br />
-        <h1>Topic name</h1><br/>
+        <h1>{{topic.deck_name}}</h1><br/>
         <div id="countdown"></div>
         <br/><br/>
 
         <div class="box_word">
-            <h2>word</h2>
+        {% comment %} {% for i in cards %} {% endcomment %}
+            <h2 id="word"></h2>
+        {% comment %} {% endfor %} {% endcomment %}
         </div>
         <br/><br/>
-        <button type="button" class="btn btn-danger">Pass</button>
-        <button type="button" class="btn btn-success">Correct</button>
+        <button type="button" id="pass" class="btn btn-danger" onclick="change_word()">Pass</button>
+        &nbsp;&nbsp;<button type="button" id="correct" class="btn btn-success" onclick="change_word()">Correct</button>
     </div>
-
-
-    
-
 </body>
+<script src="{% static 'js/playing.js'%}"></script>
+<script>
+var total_card = {{topic.card_set.count}} -1;
+var count = 0
+cards = {{cards|safe}}
+console.log(total_card)
+console.log(cards)
+console.log(cards[0])
+{% comment %} var card = {{ card_name|tojson }}; {% endcomment %}
+var id = ['ad','gdg']
+document.getElementById("word").innerHTML = cards[0]
+function change_word(){
+    console.log("woohoo")
+    if (count<total_card)
+    {
+        count +=1
+        document.getElementById("word").innerHTML = cards[count]
+    } 
+}
+
+</script>
 
 </html>
