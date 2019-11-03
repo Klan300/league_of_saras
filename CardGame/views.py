@@ -2,7 +2,6 @@ from flask import json
 from django.http import HttpResponse
 from django.shortcuts import render 
 from Cardgame.models import Deck
-from flask import json
 # from django.utils import simplejson
 
 def index(request):
