@@ -1,23 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  {% load static %}
   <meta charset="utf-8">
-
-  <title>My fake blog!</title>
-
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
-    integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-    crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
 </head>
+
 <body>
-{% if user.is_authenticated %}
-    <p  class="text-black">Logged in as {{ user.username }}</p>
-      <a href="{% url "logout" %}">Logout</a>
-  {% else %}
-    <i class="fab fa-google" ></i>
-    <a href="{% url "social:begin" "google-oauth2" %}">Sign in with Google</a>
-  {% endif %}
+  <div class="block">
+    <div class="home">
+      <div class="heading">
+        <h1 class="head">
+          league of saras
+        </h1>
+      </div>
+      <div class="description">
+        <p class="describe">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi animi minima, soluta
+          blanditiis
+          numquam eum similique, quod ducimus officiis recusandae assumenda exercitationem eligendi aperiam. Ut quam
+          doloribus nihil sint porro. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci aspernatur
+          accusamus accusantium ad consequuntur nulla, qui rerum iure, error id necessitatibus laboriosam corporis.
+          Aperiam saepe, numquam doloribus et id consequuntur.</p>
+      </div>
+      <div class="log">
+        {% if user.is_authenticated %}
+        <a href="{% url "logout" %}">Logout</a>
+        {% else %}
+        <i class="fab fa-google"></i>
+        <a href="{% url "social:begin" "google-oauth2" %}">Sign in with Google</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>

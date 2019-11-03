@@ -24,20 +24,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'Cardgame.apps.CardgameConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'rest_framework',
-    'social_django',
-    'Cardgame.apps.CardgameConfig', 
+    'django.contrib.staticfiles',
+    'social_django', 
 ]
 
 MIDDLEWARE = [
@@ -48,14 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware', # This needs to be first
 ]
-
-
-AUTHENTICATION_BACKENDS = (
-    'social_core.backends.google.GoogleOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
-)
 
 
 ROOT_URLCONF = 'league_of_saras.urls'
@@ -75,6 +68,12 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 
 WSGI_APPLICATION = 'league_of_saras.wsgi.application'
 
@@ -113,7 +112,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LOGIN_URL = '/auth/login/google-oauth2/'
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
 SECRET_KEY = 'd%$eo0homjyjzg*)gh0)1m09)1ds7xe3$v8k*t0c-_vk7ydl8-'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '533011072786-ii1mt1u0h2bif5q7744hipo419ap1925.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'wbtWrbSIBn2t-RrPgBdr2XHt'
