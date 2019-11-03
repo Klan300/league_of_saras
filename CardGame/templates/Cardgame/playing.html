@@ -4,7 +4,7 @@
 <head>
     <title>play</title>
 </head>
-{% load static %} 
+{% load static %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -16,43 +16,59 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
+
 <body>
     <div class="wrapper">
         <br />
-        <h1>{{topic.deck_name}}</h1><br/>
+        <h1>{{topic.deck_name}}</h1><br />
         <div id="countdown"></div>
-        <br/><br/>
+        <br />
+        <div>
+            <h6>Score:&nbsp;<span id="score">0</span></h6>
+        </div>
+        <br />
 
         <div class="box_word">
-        {% comment %} {% for i in cards %} {% endcomment %}
+            {% comment %} {% for i in cards %} {% endcomment %}
             <h2 id="word"></h2>
-        {% comment %} {% endfor %} {% endcomment %}
+            {% comment %} {% endfor %} {% endcomment %}
         </div>
-        <br/><br/>
-        <button type="button" id="pass" class="btn btn-danger" onclick="change_word()">Pass</button>
-        &nbsp;&nbsp;<button type="button" id="correct" class="btn btn-success" onclick="change_word()">Correct</button>
+        <br /><br />
+        <div id="button">
+        <button type="button" id="pass" class="btn btn-danger" onclick="change_word(id)">Pass</button>
+        &nbsp;&nbsp;<button type="button" id="correct" class="btn btn-success" onclick="change_word(id)">Correct</button>
+        </div>
+        <button type="button" id="end" class="btn btn-primary">finish</button>
     </div>
 </body>
-<script src="{% static 'js/playing.js'%}"></script>
 <script>
-var total_card = {{topic.card_set.count}} -1;
-var count = 0
-cards = {{cards|safe}}
-console.log(total_card)
-console.log(cards)
-console.log(cards[0])
-{% comment %} var card = {{ card_name|tojson }}; {% endcomment %}
-var id = ['ad','gdg']
-document.getElementById("word").innerHTML = cards[0]
-function change_word(){
-    console.log("woohoo")
-    if (count<total_card)
-    {
-        count +=1
-        document.getElementById("word").innerHTML = cards[count]
-    } 
-}
 
+    var total_card = {{ topic.card_set.count }} -1;
+    var count = 0
+    var score = 0
+    console.log(score)
+
+    cards = {{ cards | safe }}
+    console.log(total_card)
+    console.log(cards)
+    console.log(cards[0])
+    {% comment %} var card = {{ card_name| tojson }}; {% endcomment %}
+    var id = ['ad', 'gdg']
+    document.getElementById("word").innerHTML = cards[0]
+    function change_word(button) {
+        if (count < total_card) {
+            count += 1
+            document.getElementById("word").innerHTML = cards[count]
+        }
+        if (button == "correct")
+        {
+            score +=1
+            document.getElementById("score").innerHTML = score
+            console.log(score)
+        }
+    }
 </script>
+<script src="{% static 'js/playing.js'%}"></script>
+
 
 </html>
