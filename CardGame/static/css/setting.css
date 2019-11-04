@@ -1,4 +1,10 @@
+* {
+    font-family: 'Varela Round', sans-serif;
+    color: #072525;
+}
+
 body {
+    font-family: 'Varela Round', sans-serif;
     background-color: #5f9b9e;  
 }
 
