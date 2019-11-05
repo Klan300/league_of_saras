@@ -32,8 +32,8 @@
           logout
         </a>
         {% else %}
-        <i class="fab fa-google"></i>
-        <a href="{% url "social:begin" "google-oauth2" %}" class="btn btn-light"><img src="{{ google }}" class="google" alt="My image">Sign in with Google</a>
+        <a href="{% url "social:begin" "google-oauth2" %}" class="btn btn-light signin"><img src="{{ google }}" class="google" alt="My image">Sign in with Google</a>
+        <a href="{% url "social:begin" "google-oauth2" %}" class="btn btn-light signin"><img src="{{ google }}" class="google" alt="My image">Sign in with Google</a>
         {% endif %}
       </div>
     </div>

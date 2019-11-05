@@ -1,10 +1,10 @@
 * {
     font-family: 'Varela Round', sans-serif;
-    color: #072525;
+    color: #ffffff;
 }
 
 body {
-    background-color: #c6a878;
+    background-color: #d7a46f;
 }
 
 
@@ -19,8 +19,9 @@ body {
     width: 70%;
     border: 5px solid white;
     border-radius: 20px;
-    background-color: #87a0ab;
+    background-color: #5f9b9e;
     margin-top: 10%;
+    padding-top: 20px;
 }
 
 
@@ -34,10 +35,13 @@ body {
     margin-bottom: 20px;
 }
 
+.signin {
+    border-radius: 20px;
+}
 
 .google{
     width: 30px;
     height: 30px;
-    border-right: 1px solid grey;
-    margin-right: 5px;
+    margin-right: 10px;
 }
+
