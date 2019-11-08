@@ -1,4 +1,3 @@
-from flask import json 
 from django.http import HttpResponse
 from django.shortcuts import render 
 from Cardgame.models import Deck
