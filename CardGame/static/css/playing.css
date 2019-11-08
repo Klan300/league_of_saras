@@ -26,3 +26,10 @@ height: 200px;
 padding-top: 70px;
 border-radius: 8px;
 }
+
+
+/* new version */
+.play-container {
+  display: flex;
+  justify-content: center;
+}

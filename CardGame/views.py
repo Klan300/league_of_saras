@@ -14,5 +14,5 @@ def playing(request):
     print(card_name)
     # card_name = simplejson.dumps(card_name)
     # card_name = json.dumps(card_name)
-    return render(request,'Cardgame/playing.html',{'topic':topic,'cards':card_name},
+    return render(request,'Cardgame/newplayingpage.html',{'topic':topic,'cards':card_name},
     )
