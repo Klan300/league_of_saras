@@ -15,20 +15,6 @@
     background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(255, 166, 0));
 }
 
-.deck-box{
-    width: 300px;
-    height: 300px;
-    padding: 20px;
-    border: 1px solid blueviolet;
-}
-
-.outer{
-    padding-top: 10%;
-    list-style-type: none;
-    text-align: center;
-    margin: 0;
-    padding: 20;
-}
 #box{
     display: inline-block;
     padding: 5%;
@@ -73,6 +59,21 @@
     left: 76%;
     width: 20%;
 }
+
+#rcorner
+ {
+    display: inline-block;
+    padding: 5%;
+    border: 5px solid blueviolet;
+    border-radius: 25px;
+    background-color: gray;
+    background-position: left top;
+    background-repeat: repeat;
+    padding: 20px; 
+    width: 20%;
+    height: 150px;  
+  }
+
 
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
