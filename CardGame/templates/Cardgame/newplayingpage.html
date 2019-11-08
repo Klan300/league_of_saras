@@ -16,23 +16,19 @@
 </head>
 
 <body>
-    <div class="game-container">
-
+    <div class="play-container">
         <div><h1>{{topic.deck_name}}</h1></div>
         <div class = "time" id="countdown"></div>
         <br />
-        <div>
+        <div class="score">
             <h6>Score: <span id="score">0</span></h6>
         </div>
-        <br />
 
         <div class="box_word">
-            {% comment %} {% for i in cards %} {% endcomment %}
             <h2 id="word"></h2>
-            {% comment %} {% endfor %} {% endcomment %}
         </div>
-        <br /><br />
-        <div id="button">
+        
+        <div class="button" id="button">
             <button type="button" id="pass" class="btn btn-danger" onclick="change_word(id)">Pass</button>
             &nbsp;&nbsp;<button type="button" id="correct" class="btn btn-success"
                 onclick="change_word(id)">Correct</button>
