@@ -15,30 +15,6 @@
   <div class="bg bg2"></div>
   <div class="bg bg3"></div>
   <div class="block">
-    <div class="home">
-      <div class="heading">
-        <h1 class="head">
-          league of saras
-        </h1>
-      </div>
-      <div class="description">
-        <p class="describe">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi animi minima, soluta
-          blanditiis
-          numquam eum similique, quod ducimus officiis recusandae assumenda exercitationem eligendi aperiam. Ut quam
-          doloribus nihil sint porro. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci aspernatur
-          accusamus accusantium ad consequuntur nulla, qui rerum iure, error id necessitatibus laboriosam corporis.
-          Aperiam saepe, numquam doloribus et id consequuntur.</p>
-      </div>
-      <div class="log">
-        {% if user.is_authenticated %}
-        <a class="btn btn-danger" href="{% url "logout" %}">
-          logout
-        </a>
-        {% else %}
-        <a href="#" class="btn btn-primary signin login-basic">Login</a>
-        <a href="{% url "social:begin" "google-oauth2" %}" class="btn btn-light signin"><img src="{{ google }}" class="google" alt="My image">Sign in with Google</a>
-        {% endif %}
-      </div>
     </div>
   </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
