@@ -11,6 +11,3 @@ def playing(request):
 
 def setting(request):
     return render(request,'Cardgame/setting.html')
-
-def setting2(request):
-    return render(request,'Cardgame/setting2.html')
