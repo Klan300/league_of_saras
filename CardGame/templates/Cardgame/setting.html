@@ -18,10 +18,18 @@
     <h1>Setting</h1>
   </div>
 
-  <div class="main">
-    <!-- time -->
-    <div class='time'>
-      <h2>Time Duration</h2>
+  <div class="flex-container">
+    {% comment %} text {% endcomment %}
+    <div class="d-flex">
+      <div class="box">
+        <h2>Time Duration</h2>
+      </div>
+      <div class="box">
+        <h2>Sound</h2>
+      </div>
+    </div>
+    {% comment %} button {% endcomment %}
+    <div class="d-flex">
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
         <label class="btn btn-primary">
           <input type="radio" name="options" id="option1" autocomplete="off"> 45
@@ -33,19 +41,17 @@
           <input type="radio" name="options" id="option3" autocomplete="off"> 90
         </label>
       </div>
-    </div>
-    <!-- sound -->
-    <div class="sound">
-      <h2>sound</h2>
-      <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label>
+      <div class="sound">
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider round"></span>
+        </label>
+      </div>
     </div>
   </div>
 
   <div class="footer">
-    <div class="play_button text-center">
+    <div class="play_button">
       <button type="button" class="btn btn-success btn-lg">Play a game</button>
       <button type="button" class="btn btn-primary btn-lg">Menu</button>
     </div>
