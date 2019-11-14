@@ -1,0 +1,174 @@
+* {
+    font-family: 'Varela Round', sans-serif;
+    color: #ffffff;
+}
+
+html {
+    height:100%;
+  }
+  
+  body {
+    margin:0;
+  }
+  
+  .bg {
+    animation:slide 3s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #374b5e 50%, #536d82 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+  }
+  
+  .bg2 {
+    animation-direction:alternate-reverse;
+    animation-duration:4s;
+  }
+  
+  .bg3 {
+    animation-duration:5s;
+  }
+  
+  @keyframes slide {
+    0% {
+      transform:translateX(-25%);
+    }
+    100% {
+      transform:translateX(25%);
+    }
+  }
+
+.block {
+    display: flex;
+    justify-content: center;
+}
+
+
+.home {
+    text-align: center;
+    width: 70%;
+    border: 5px solid white;
+    border-radius: 20px;
+    background-color: #dc8c61f3;
+    margin-top: 13%;
+    padding-top: 20px;
+}
+
+
+.description {
+    margin: 20px 70px 20px 70px ;
+    padding: 30px;
+}
+
+
+.log{
+    margin-bottom: 15px;
+}
+
+.login-basic  {
+    background-color: #536d82;
+    border-color: #536d82;
+}
+
+.login-basic:hover {
+    background-color: #3f5363;
+    border-color: #3f5363;
+}
+
+
+.signin {
+    border-radius: 20px;
+    margin: 0px 5px 0px 5px;
+    font-size: 15px;
+}
+
+.google{
+    width: auto;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.start {
+  margin-bottom: 15px;
+}
+
+.start-btn {
+  background-color: #536d82;
+  border-color: #536d82;
+  border-radius: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 20px;
+}
+
+.start-btn:hover {
+  background-color: #3f5363;
+  border-color: #3f5363;
+}
+
+.form {
+  margin-top: 40px;
+  display: none;
+}
+
+
+.fadeout {
+  color: #ffffff;
+  animation-name: example;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.fadein {
+  animation-name: example2;
+  animation-duration: 0.5s;
+  animation-fill-mode: backwards;
+}
+
+
+
+.hide {
+  display: none;
+}
+
+.views {
+  display: block;
+}
+
+@keyframes example {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+@keyframes example2 {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.smaller {
+  animation-name: small-screen;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes small-screen {
+  from {width: 70%;}
+  to {width: 40%;}
+}
+
+.input-lg {
+  color:#536d82;
+  border-radius: 10px;
+  padding-left: 7px;
+}
+
+hr {
+  color: #ffffff;
+  width: 40%;
+  margin-bottom: 15px;
+  font-size:20px;
+  border-width: 2px;
+}
