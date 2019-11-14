@@ -42,22 +42,6 @@
               logout
             </a>
             {% else %}
-            <!-- <form method="post">
-                {% csrf_token %}
-                <p>
-                  <label for="id_username">Username</label><br>
-                  {{ form.username}}
-                </p>
-                <p class="mb-4">
-                    <label for="id_password" >Password</label><br>
-                    {{ form.password}}
-                </p>
-                <input type="hidden" name="next" value="{{next}}" />
-                <div class="log">
-                    <button href="#" type="submit" class="btn btn-primary signin login-basic">Login</button> or <a href="" class="btn btn-primary signin login-basic">Signup</a>
-                </div>
-                <hr>
-              </form> -->
               <a href="{% url "social:begin" "google-oauth2" %}" class="btn btn-light signin"><img src="{{ google }}" class="google" alt="My image">Sign in with Google</a>
               <a href="{% url 'social:begin' 'facebook' %}"  class="btn btn-light signin">Login with Facebook</a>
             {% endif %}
