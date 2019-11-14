@@ -8,3 +8,6 @@ def index(request):
     
 def playing(request):
     return render(request,'Cardgame/playing.html')
+
+def home(request):
+    return render(request, 'Cardgame/home.html')
