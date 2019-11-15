@@ -29,9 +29,9 @@
         </div>
         
         <div class="button" id="button">
-            <button type="button" id="pass" style="border-radius: 20px;" class="btn btn-danger" onclick="change_word(id)">Pass</button>
+            <button type="button" id="pass" style="border-radius: 20px;" class="btn btn-danger" onclick="change_word(id),change_bg(id)">Pass</button>
             &nbsp;&nbsp;<button type="button" style="border-radius: 20px;" id="correct" class="btn btn-success"
-                onclick="change_word(id)">Correct</button>
+                onclick="change_word(id),change_bg(id)">Correct</button>
         </div>
         <div class="button">
         <button type="button" id="end" style="border-radius: 20px;" class="btn btn-primary">finish</button>
@@ -86,7 +86,27 @@ var downloadTimer = setInterval(function () {
 <script>
 var green = "#30EF19"
 var red = "#EF5319"
-
+function change_bg(button){
+    var lefttime = 1;
+    if (button== "pass") {
+        document.querySelector("body").style.background = red
+        var click = setInterval(function () {
+        lefttime -= 1;
+        if (lefttime<0.5){
+            document.querySelector("body").style.background = "#5f9b9e"
+        }
+    },1000)
+    }
+    else if (button=="correct") {
+        document.querySelector("body").style.background = green
+        var click = setInterval(function () {
+        lefttime -= 1;
+        if (lefttime<0.5){
+            document.querySelector("body").style.background = "#5f9b9e"
+        }
+    },1000)
+    }
+}
 
 </script>
 
