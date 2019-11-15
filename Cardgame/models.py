@@ -4,7 +4,11 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Deck(models.Model):
     deck_name = models.CharField(max_length=200)
-    
+
+    def number_of_card(self):
+        deck = Deck.objects.get(deck_name__startswith=self.deck_name)
+        return deck.card_set.count()
+
     def __str__(self):
         return self.deck_name
 
