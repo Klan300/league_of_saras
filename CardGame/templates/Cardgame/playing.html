@@ -86,6 +86,7 @@ var downloadTimer = setInterval(function () {
 <script>
 var green = "#30EF19"
 var red = "#EF5319"
+var bg = "#A5A4A4"
 function change_bg(button){
     var lefttime = 1;
     if (button== "pass") {
@@ -93,7 +94,7 @@ function change_bg(button){
         var click = setInterval(function () {
         lefttime -= 1;
         if (lefttime<0.5){
-            document.querySelector("body").style.background = "#5f9b9e"
+            document.querySelector("body").style.background = bg
         }
     },1000)
     }
@@ -102,7 +103,7 @@ function change_bg(button){
         var click = setInterval(function () {
         lefttime -= 1;
         if (lefttime<0.5){
-            document.querySelector("body").style.background = "#5f9b9e"
+            document.querySelector("body").style.background = bg
         }
     },1000)
     }

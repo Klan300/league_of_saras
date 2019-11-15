@@ -1,11 +1,11 @@
 * {
   font-family: 'Varela Round', sans-serif;
   color: rgb(255, 255, 255);
+  
 }
 
 body {
-  font-family: 'Varela Round', sans-serif;
-  background-color: #5f9b9e;  
+  background-color: #A5A4A4;  
 }
 
 .round2 {
@@ -13,7 +13,7 @@ border-radius: 8px;
 }
 
 .box_word {
-background-color: grey;
+background-color: #dc8c61f3;
 margin-right: 25%;
 margin-left: 25%;
 text-align: center;
