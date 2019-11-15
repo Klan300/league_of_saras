@@ -1,6 +1,6 @@
 * {
   font-family: 'Varela Round', sans-serif;
-  color: #072525;
+  color: rgb(255, 255, 255);
 }
 
 body {
@@ -20,7 +20,7 @@ text-align: center;
 width: 500px;
 height: 300px;
 padding: 125px;
-border-radius: 8px;
+border-radius: 20px;
 
 }
 
