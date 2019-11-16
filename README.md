@@ -14,6 +14,8 @@ While playing this game, a player will have a time limit, the game will end when
 
 ## Documents
 - **Project Proposal**: [Project Proposal on Google Docs](https://docs.google.com/document/d/1kjmwQOL9fKmXiI1_uqLdV-asIle4mSzEQGIRGIKzBFo/edit#)
+- **Iteration plans**: [Iteration plans on Google plans](https://docs.google.com/document/d/1C6C2YfqwmR7YsCBz39rs0z9va9YHM7S1Zz55n6cdEh8/edit)
+- **Task Board**: [Task board on Trello](https://trello.com/b/5IZQzFnU/league-of-saras)
 
 
 
