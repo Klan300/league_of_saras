@@ -41,29 +41,23 @@
 <script>
 
     var total_card = {{ topic.card_set.count }} -1;
+    var index = 0
     var count = 0
     var score = 0
-    console.log(score)
-
     cards = {{ cards | safe }}
-    console.log(total_card)
-    console.log(cards)
-    console.log(cards[0])
-    var id = ['ad', 'gdg']
     document.getElementById("word").innerHTML = cards[0]
     function change_word(button) {
+        count += 1
         if (count < total_card) {
-            count += 1
-            document.getElementById("word").innerHTML = cards[count]
+            index += 1 
+            document.getElementById("word").innerHTML = cards[index]
         }
         if (button == "correct") {
+            if (count<= total_card){
             score += 1
+            }
             document.getElementById("score").innerHTML = score
-            console.log(score)
-        }
-
-
-        
+        }        
     }
 </script>
 <script>
@@ -84,7 +78,7 @@ var downloadTimer = setInterval(function () {
 </script>
 
 <script>
-var green = "#30EF19"
+var green = "#46AD43"
 var red = "#EF5319"
 var bg = "#A5A4A4"
 function change_bg(button){
