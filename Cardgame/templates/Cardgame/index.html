@@ -29,24 +29,27 @@
         </h1>
       </div>
       <div class="description" id="">
-        <p class="describe">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi animi minima, soluta
-          blanditiis
-          numquam eum similique, quod ducimus officiis recusandae assumenda exercitationem eligendi aperiam. Ut quam
-          doloribus nihil sint porro. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci aspernatur
-          accusamus accusantium ad consequuntur nulla, qui rerum iure, error id necessitatibus laboriosam corporis.
-          Aperiam saepe, numquam doloribus et id consequuntur.</p>
+        <p class="describe">League of Saras is a web-based game that lets players guess a word. This game contains many
+          types of educational words organized by school subject. The game is played by two or more people; one player
+          tries to guess the word, while others try to give hint without saying that word. The goal of this game is to
+          let children have fun and gain more knowledge by the card game with their friends. While playing this game, a
+          player will have a time limit, the game will end when time is over. If a player guesses the correct word, the
+          referee will click the correct button. On the other hand, if not, the referee will click on the wrong button.
+          both buttons will step into the next word.</p>
       </div>
       <div class="form">
         <div class="log">
-            {% if user.is_authenticated %}
-            <a class="btn btn-danger" href="{% url "logout" %}">
-              logout
-            </a>
-            {% else %}
-              <a href="{% url "social:begin" "google-oauth2" %}" class="btn btn-light signin"><img src="{{ google }}" class="google" alt="My image">Sign in with Google</a><br style="margin: 10px;">
-              <a href="{% url 'social:begin' 'facebook' %}"  class="btn btn-light signin facebook-signin"><img src="{{ facebook }}" class="facebook" alt="My image">Login with Facebook</a>
-            {% endif %}
-          </div> 
+          {% if user.is_authenticated %}
+          <a class="btn btn-danger" href="{% url "logout" %}">
+            logout
+          </a>
+          {% else %}
+          <a href="{% url "social:begin" "google-oauth2" %}" class="btn btn-light signin"><img src="{{ google }}"
+              class="google" alt="My image">Sign in with Google</a><br style="margin: 10px;">
+          <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-light signin facebook-signin"><img
+              src="{{ facebook }}" class="facebook" alt="My image">Login with Facebook</a>
+          {% endif %}
+        </div>
       </div>
       <div class="start">
         <button class="btn btn-primary start-btn" id="btn" type="submit">let's start</button>
