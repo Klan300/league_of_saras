@@ -14,12 +14,13 @@
     <h1 class = "middle" id = "head-color"> League of Saras</h1>
 <body>
     <div class="severalbox">
+        {% for deck in deck_list %}
         <div class="first-col">
-            <button class="open-button" onclick="openForm()">Each topic</button>
+            <button class="open-button" onclick="openForm()">{{ deck.deck_name}}</button>
                 <div class="form-popup" id = "myForm">
                     <form action="" class = "form-container">
                         <div class="flex">
-                            <div class="topic">Each topic</div>
+                            <div class="topic">{{ deck.deck_name}}</div>
                             <label for="close-btn">
                                 <div class="close-container">
                                     <div class="leftright"></div>
@@ -37,8 +38,8 @@
                         </form>
                 </div>
             </div>
-                
-        <div class="second-col">
+        {% endfor %}
+        <!-- <div class="second-col">
                 <button class="open-button" onclick="openForm()">Each topic</button>
                 <div class="form-popup" id = "myForm">
                     <form action="" class = "form-container">
@@ -73,7 +74,7 @@
                         <button type = "button" class= "btn cancel" onclick="closeForm()"> Close </button>
                     </form>
                 </div>
-        </div>
+        </div> -->
     </div>
     
     <div class="severalbox2">
