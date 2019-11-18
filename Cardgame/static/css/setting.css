@@ -1,15 +1,14 @@
 * {
     font-family: 'Varela Round', sans-serif;
     color: #072525;
-    background: #374b5e;
 }
 
 /* Header/logo Title */
 .header {
     padding: 60px;
     text-align: center;
-    background: #374b5e;
     color: white;
+    background-color: #374b5e;
 }
 
 h2 {
@@ -19,13 +18,15 @@ h2 {
 .flex-container {
     display: flex;
     background: #dc8c61;
-    margin-left: 20%;
-    margin-right: 20%;
-    padding: 10%;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 10%;
+    padding-bottom: 10%;
     justify-content: space-between;
     border-style: solid;
     border-width: 5px;
     border-color: white;
+    z-index: 1;
 }
 
 .d-flex:nth-child(1) {
@@ -39,13 +40,9 @@ h2 {
 }
 
 .footer {
-    background: #374b5e;
     text-align: center;
     padding: 6%;
-}
-
-.play_button {
-
+    background-color: #374b5e;
 }
 
 /* The switch - the box around the slider */
