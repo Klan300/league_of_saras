@@ -8,7 +8,7 @@ h1{
   }
 
 body{
-  background-color: #374b5e;
+  background-color: #536d82;
 }
 
 .severalbox{
@@ -18,16 +18,18 @@ body{
   justify-content: start;
 }
 
-.first-col, .second-col, .third-col, .fourth-col{
+.first-col {
   width : 20%;
   height: 200px;
   margin:  2%;
   border: 5px solid white;
   border-radius: 25px;
   background-color: #dc8c61;
-  text-align: center;
+  display: flex;
+  justify-content: center;
   
 }
+
 
 .flex{
   display: flex;
@@ -53,7 +55,6 @@ body{
     cursor: pointer;
     opacity: 0.8;
     width: 150px;
-    margin: 75px;
   }
   
   /* The popup form - hidden by default */
@@ -63,7 +64,7 @@ body{
     bottom: 35%;
     right: 35%;
     left : 35%;
-    border: 3px solid #ca493c;
+    width: 400px;
     z-index: 9;
     color: #374b5e;
     font-size: x-large;
@@ -73,13 +74,15 @@ body{
   /* Add styles to the form container */
   .form-container {
     max-width: 1000px;
-    padding: 10px;
+    height: 100%;
     background-color: white;
+    border: 5px solid;
+    border-radius: 20px;
   }
   
   /* Set a style for the submit/login button */
   .form-container .btn {
-    background-color: #536d82;
+    background-color: #374b5e;
     color: white;
     font-weight: bolder;
     padding: 16px 20px;

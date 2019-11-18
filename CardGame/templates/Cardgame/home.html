@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-        {% load static %}
-      
+{% load static %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,35 +12,37 @@
 
 
 </head>
-    <h1 class = "middle" id = "head-color"> League of Saras</h1>
+<h1 class="middle" id="head-color"> League of Saras</h1>
+
 <body>
     <div class="severalbox">
         {% for deck in deck_list %}
         <div class="first-col">
-            <button class="open-button" onclick="openForm()">{{ deck.deck_name}}</button>
-                <div class="form-popup" id = "myForm">
-                    <form action="" class = "form-container">
-                        <div class="flex">
-                            <div class="topic">League of Saras</div>
-                                <div class="close-container">
-                                    <div class="leftright"></div>
-                                    <div class="rightleft"></div>
-                                    <button type = "button"  id="close-btn"  class= "btn close" onclick="closeForm()"></button>
-                                </div>
+            <button class="open-button" onclick="openForm('{{deck.deck_name }}')">{{ deck.deck_name }}</button>
+            <div class="form-popup" id="{{ deck.deck_name }}">
+                <form action="" class="form-container">
+                    <div class="flex">
+                        <div class="topic">{{ deck.deck_name }}</div>
+                        <div class="close-container">
+                            <div class="leftright"></div>
+                            <div class="rightleft"></div>
+                            <button type="button" id="close-btn" class="btn close" onclick="closeForm('{{ deck.deck_name }}')"></button>
                         </div>
-                        <div class="flex">
-                            <button type = "button" class= "btn"> Scoreboard</button>
-                            <button type = "button" class= "btn"> Play</button>
-                        </div>
-                        </form>
-                </div>
+                    </div>
+                    <div class="flex">
+                        <button type="button" class="btn"> Scoreboard</button>
+                        <button type="button" class="btn"> Play</button>
+                    </div>
+                </form>
             </div>
+        </div>
         {% endfor %}
     </div>
 
 
     <script src="{% static 'js/home.js'%}"></script>
 
-    
+
 </body>
+
 </html>
