@@ -1,14 +1,17 @@
 * {
     font-family: 'Varela Round', sans-serif;
     color: #072525;
+   
 }
-
+body{
+    background-color: #536d82;
+}
 /* Header/logo Title */
 .header {
     padding: 60px;
     text-align: center;
     color: white;
-    background-color: #374b5e;
+    /* background-color: #374b5e; */
 }
 
 h2 {
@@ -18,11 +21,17 @@ h2 {
 .flex-container {
     display: flex;
     background: #dc8c61;
-    padding-left: 20%;
+    /* padding-left: 20%;
     padding-right: 20%;
     padding-top: 10%;
-    padding-bottom: 10%;
-    justify-content: space-between;
+    padding-bottom: 10%; */
+    border-radius: 20px;
+    height: 200px;
+    margin-left: 25%;
+    margin-right: 25%;
+    flex-direction: column;
+    justify-content: space-around;
+    /* align-items: center; */
     border-style: solid;
     border-width: 5px;
     border-color: white;
@@ -30,19 +39,23 @@ h2 {
 }
 
 .d-flex:nth-child(1) {
-    flex-direction: column;
-    align-items: flex-start;
+    /* display: flex; */
+    justify-content: space-around;
+    /* flex-direction: column; */
+    /* align-items: flex-start; */
 }
 
 .d-flex:nth-child(2) {
-    flex-direction: column;
-    align-items: center;
+    /* display: flex; */
+    justify-content: space-around;
+    /* flex-direction: column; */
+    /* align-items: center; */
 }
 
 .footer {
     text-align: center;
     padding: 6%;
-    background-color: #374b5e;
+    /* background-color: #374b5e; */
 }
 
 /* The switch - the box around the slider */
