@@ -51,7 +51,9 @@ body{
 .topic{
   flex: 1;
   padding-top: 10px;
+  padding-left: 60px;
   padding-block-end: 10px;
+  text-align: center;
 }
 
 
