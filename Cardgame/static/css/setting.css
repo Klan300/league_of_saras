@@ -120,3 +120,7 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+.button-down {
+    margin: 10px;
+}
