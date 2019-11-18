@@ -2,13 +2,10 @@
     font-family: 'Varela Round', sans-serif;
 }
 
-.middle{
-    text-align: center
-}
-
-#head-color{
-    color : white
-}
+h1{
+    color : white;
+    text-align: center;
+  }
 
 body{
   background-color: #374b5e;
@@ -17,19 +14,14 @@ body{
 .severalbox{
   padding-top: 5%;
   display: flex;
-  justify-content: space-around;
-}
-
-.severalbox2{
-  padding-top: 5%;
-  display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: start;
 }
 
 .first-col, .second-col, .third-col, .fourth-col{
   width : 20%;
   height: 200px;
-  margin:  10px;
+  margin:  2%;
   border: 5px solid white;
   border-radius: 25px;
   background-color: #dc8c61;
@@ -43,15 +35,10 @@ body{
 
 }
 
-/* .topic-container label{
-  padding-inline-end: 0%;
-} */
-
-
 .topic{
   flex: 1;
   padding-top: 10px;
-  padding-left: 60px;
+  padding-left: 40px;
   padding-block-end: 10px;
   text-align: center;
 }
@@ -62,12 +49,12 @@ body{
 .open-button {
     background-color: transparent;
     color: white;
-    padding: 5px 5px;
+    font-size: xx-large;
     border: none;
     cursor: pointer;
     opacity: 0.8;
-    /* position: fixed; */
     width: 150px;
+    margin: 75px;
   }
   
   /* The popup form - hidden by default */
@@ -75,11 +62,13 @@ body{
     display: none;
     position: fixed;
     bottom: 35%;
-    right: 30%;
-    left : 30%;
-    border: 3px solid #360b68;
-    /* border-radius: px; */
+    right: 35%;
+    left : 35%;
+    border: 3px solid #ca493c;
     z-index: 9;
+    color: #374b5e;
+    font-size: x-large;
+    font-weight: bold;
   }
   
   /* Add styles to the form container */
@@ -91,26 +80,24 @@ body{
   
   /* Set a style for the submit/login button */
   .form-container .btn {
-    background-color: #4CAF50;
+    background-color: #536d82;
     color: white;
+    font-weight: bolder;
     padding: 16px 20px;
     border: none;
+    border-radius: 25px;
     cursor: pointer;
-    width: 100%;
+    width: 40%;
     margin-bottom:10px;
     opacity: 0.8;
   }
   
   /* Add a red background color to the cancel button */
-  .form-container .cancel {
-    background-color: red;
-  }
+
   .form-container .close {
     background-color: transparent;
     position: relative;
-    /* cursor: pointer; */
     margin: 3px;
-    /* position: absolute; */
   }
 
   
@@ -130,20 +117,6 @@ body{
   .form-container:hover label{
     opacity: 1;
   }
-
-
-  .close-container{
-    background-color: transparent;
-    position: relative;
-    margin: auto;
-    width: auto;
-    height: auto;
-    cursor: pointer;
-  }
-
-
-
-
   
   .leftright{
     height: 4px;
@@ -165,29 +138,4 @@ body{
     border-radius: 2px;
     transform: rotate(-45deg);
     transition: all .3s ease-in;
-  }
-  
-  label{
-    color: red;
-    font-family: Helvetica, Arial, sans-serif; 
-    font-size: .6em;
-    text-transform: uppercase;
-    letter-spacing: 20px;
-    transition: all .3s ease-in;
-    opacity: 0;
-  }
-  .close{
-    position: absolute;
-  }
-
-  .close-container:hover .leftright{
-    transform: rotate(-45deg);
-    background-color: #F25C66;
-  }
-  .close-container:hover .rightleft{
-    transform: rotate(45deg);
-    background-color: #F25C66;
-  }
-  .close-container:hover label{
-    opacity: 1;
   }

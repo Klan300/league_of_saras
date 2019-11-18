@@ -15,22 +15,22 @@
     <h1 class = "middle" id = "head-color"> League of Saras</h1>
 <body>
     <div class="severalbox">
+        {% for deck in deck_list %}
         <div class="first-col">
-            {% csrf_token %}
-            <button class="open-button" onclick="openForm()">Each topic</button>
+            <button class="open-button" onclick="openForm()">{{ deck.deck_name}}</button>
                 <div class="form-popup" id = "myForm">
                     <form action="" class = "form-container">
                         <div class="flex">
-                            <div class="topic">Each topic</div>
-                            <label for="close-btn">
+                            <div class="topic">League of Saras</div>
+                            <!-- <label for="close-btn"> -->
                                 <div class="close-container">
                                     <div class="leftright"></div>
                                     <div class="rightleft"></div>
-                                    <label class="close">
-                                        <button type = "button"  id="close-btn"  class= "btn close" onclick="closeForm()"></button>
-                                    </label>
+                                    <!-- <label class="close"> -->
+                                    <button type = "button"  id="close-btn"  class= "btn close" onclick="closeForm()"></button>
+                                    <!-- </label> -->
                                 </div>
-                            </label>
+                            <!-- </label> -->
                         </div>
                         <div class="flex">
                             <button type = "button" class= "btn"> Scoreboard</button>
@@ -39,94 +39,7 @@
                         </form>
                 </div>
             </div>
-                
-        <div class="second-col">
-                <button class="open-button" onclick="openForm()">Each topic</button>
-                <div class="form-popup" id = "myForm">
-                    <form action="" class = "form-container">
-                        <h1>Each topic</h1>
-    
-                        <button type = "button" class= "btn"> Scoreboard</button>
-                        <button type = "button" class= "btn"> Play</button>
-                        <button type = "button" class= "btn cancel" onclick="closeForm()"> Close </button>
-                    </form>
-                </div>
-        </div>
-        <div class="third-col">
-                <button class="open-button" onclick="openForm()">Each topic</button>
-                <div class="form-popup" id = "myForm">
-                    <form action="" class = "form-container">
-                        <h1>Each topic</h1>
-    
-                        <button type = "button" class= "btn"> Scoreboard</button>
-                        <button type = "button" class= "btn"> Play</button>
-                        <button type = "button" class= "btn cancel" onclick="closeForm()"> Close </button>
-                    </form>
-                </div>
-        </div>
-        <div class="fourth-col">
-                <button class="open-button" onclick="openForm()">Each topic</button>
-                <div class="form-popup" id = "myForm">
-                    <form action="" class = "form-container">
-                        <h1>Each topic</h1>
-    
-                        <button type = "button" class= "btn"> Scoreboard</button>
-                        <button type = "button" class= "btn"> Play</button>
-                        <button type = "button" class= "btn cancel" onclick="closeForm()"> Close </button>
-                    </form>
-                </div>
-        </div>
-    </div>
-    
-    <div class="severalbox2">
-        <div class="first-col">
-                <button class="open-button" onclick="openForm()">Each topic</button>
-                <div class="form-popup" id = "myForm">
-                    <form action="" class = "form-container">
-                        <h1>Each topic</h1>
-    
-                        <button type = "button" class= "btn"> Scoreboard</button>
-                        <button type = "button" class= "btn"> Play</button>
-                        <button type = "button" class= "btn cancel" onclick="closeForm()"> Close </button>
-                    </form>
-                </div>
-        </div>
-        <div class="second-col">
-                <button class="open-button" onclick="openForm()">Each topic</button>
-                <div class="form-popup" id = "myForm">
-                    <form action="" class = "form-container">
-                        <h1>Each topic</h1>
-    
-                        <button type = "button" class= "btn"> Scoreboard</button>
-                        <button type = "button" class= "btn"> Play</button>
-                        <button type = "button" class= "btn cancel" onclick="closeForm()"> Close </button>
-                    </form>
-                </div>
-        </div>
-        <div class="third-col" >
-                <button class="open-button" onclick="openForm()">Each topic</button>
-                <div class="form-popup" id = "myForm">
-                    <form action="" class = "form-container">
-                        <h1>Each topic</h1>
-    
-                        <button type = "button" class= "btn"> Scoreboard</button>
-                        <button type = "button" class= "btn"> Play</button>
-                        <button type = "button" class= "btn cancel" onclick="closeForm()"> Close </button>
-                    </form>
-                </div>
-        </div>
-        <div class="fourth-col">
-                <button class="open-button" onclick="openForm()">Each topic</button>
-                <div class="form-popup" id = "myForm">
-                    <form action="" class = "form-container">
-                        <h1>Each topic</h1>
-    
-                        <button type = "button" class= "btn"> Scoreboard</button>
-                        <button type = "button" class= "btn"> Play</button>
-                        <button type = "button" class= "btn cancel" onclick="closeForm()"> Close </button>
-                    </form>
-                </div>
-        </div>
+        {% endfor %}
     </div>
 
 

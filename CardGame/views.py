@@ -1,6 +1,6 @@
 
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render 
 from .models import Deck
 
 
@@ -11,9 +11,8 @@ def playing(request):
     return render(request,'Cardgame/playing.html')
 
 def home(request):
-    deck = Deck.objects.all()[0]
-    print(deck)
-    content = {
-        deck : deck,
+    deck = Deck.objects.all()
+    context = {
+        'deck_list' : deck
     }
-    return render(request, 'Cardgame/home.html',context = content)
+    return render(request, 'Cardgame/home.html',context)
