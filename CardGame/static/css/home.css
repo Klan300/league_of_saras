@@ -7,87 +7,64 @@
 }
 
 #head-color{
-    color : rgb(75, 54, 192)
+    color : white
 }
 
-
-#bg-color{
-    background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(255, 166, 0));
-}
-
-#box{
-    display: inline-block;
-    padding: 5%;
-    border: 5px solid blueviolet;
-
+body{
+  background-color: #374b5e;
 }
 
 .severalbox{
-    
-    padding-top: 5%;
-    width: 100%;
-    text-align: center;
+  padding-top: 5%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .severalbox2{
-    padding-top: 18%;
-    width: 100%;
-    text-align: center;
+  padding-top: 5%;
+  display: flex;
+  justify-content: space-around;
 }
 
-.first-col{
-
-    position: absolute;
-    left : 4%;
-    width: 20%;
+.first-col, .second-col, .third-col, .fourth-col{
+  width : 20%;
+  height: 200px;
+  margin:  10px;
+  border: 5px solid white;
+  border-radius: 25px;
+  background-color: #dc8c61;
+  text-align: center;
+  
 }
 
-.second-col{
-    position: absolute;
-    left: 28%;
-    width: 20%;
+.flex{
+  display: flex;
+  justify-content: space-around;
+
 }
 
-.third-col{
-    position: absolute;
-    left: 52%;
-    width: 20%;
+/* .topic-container label{
+  padding-inline-end: 0%;
+} */
+
+
+.topic{
+  flex: 1;
+  padding-top: 10px;
+  padding-block-end: 10px;
 }
 
-.fourth-col{
-    position: absolute;
-    left: 76%;
-    width: 20%;
-}
-
-#rcorner
- {
-    display: flex;
-    justify-content: center;
-    padding: 5%;
-    border: 5px solid blueviolet;
-    border-radius: 25px;
-    background-color: #34284b;
-    background-position: left top;
-    background-repeat: repeat;
-    padding: 20px; 
-    width: 20%;
-    height: 150px;  
-  }
 
 
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
     background-color: transparent;
-    color: rgb(233, 30, 30);
+    color: white;
     padding: 5px 5px;
     border: none;
     cursor: pointer;
     opacity: 0.8;
     /* position: fixed; */
-    bottom: 25%;
-    right: 25%;
-    left: 25%;
     width: 150px;
   }
   
@@ -95,10 +72,11 @@
   .form-popup {
     display: none;
     position: fixed;
-    bottom: 25%;
-    right: 25%;
-    left : 25%;
-    border: 3px solid #ce1818;
+    bottom: 35%;
+    right: 30%;
+    left : 30%;
+    border: 3px solid #360b68;
+    /* border-radius: px; */
     z-index: 9;
   }
   
@@ -125,30 +103,49 @@
   .form-container .cancel {
     background-color: red;
   }
+  .form-container .close {
+    background-color: transparent;
+    position: relative;
+    /* cursor: pointer; */
+    margin: 3px;
+    /* position: absolute; */
+  }
+
   
   /* Add some hover effects to buttons */
   .form-container .btn:hover, .open-button:hover {
     opacity: 1;
   }
 
-
-
-
-
+  .form-container:hover .leftright{
+    transform: rotate(-45deg);
+    background-color: #F25C66;
+  }
+  .form-container:hover .rightleft{
+    transform: rotate(45deg);
+    background-color: #F25C66;
+  }
+  .form-container:hover label{
+    opacity: 1;
+  }
 
 
   .close-container{
+    background-color: transparent;
     position: relative;
     margin: auto;
-    width: 50px;
-    height: 50px;
-    margin-top: 100px;
+    width: auto;
+    height: auto;
     cursor: pointer;
   }
+
+
+
+
   
   .leftright{
     height: 4px;
-    width: 50px;
+    width: 25px;
     position: absolute;
     margin-top: 24px;
     background-color: #F4A259;
@@ -159,7 +156,7 @@
   
   .rightleft{
     height: 4px;
-    width: 50px;
+    width: 25px;
     position: absolute;
     margin-top: 24px;
     background-color: #F4A259;
@@ -169,19 +166,18 @@
   }
   
   label{
-    color: white;
+    color: red;
     font-family: Helvetica, Arial, sans-serif; 
     font-size: .6em;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 20px;
     transition: all .3s ease-in;
     opacity: 0;
   }
   .close{
-    margin: 60px 0 0 5px;
     position: absolute;
   }
-  
+
   .close-container:hover .leftright{
     transform: rotate(-45deg);
     background-color: #F25C66;

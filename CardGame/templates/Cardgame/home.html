@@ -12,21 +12,33 @@
 
 </head>
     <h1 class = "middle" id = "head-color"> League of Saras</h1>
-<body id = "bg-color">
+<body>
     <div class="severalbox">
-        <div class="first-col" id = "rcorner">
+        <div class="first-col">
             <button class="open-button" onclick="openForm()">Each topic</button>
-            <div class="form-popup" id = "myForm">
-                <form action="" class = "form-container">
-                    <h1>Each topic</h1>
-                        <button type = "button" class= "btn"> Scoreboard</button>
-                        <button type = "button" class= "btn"> Play</button>
-                        <button type = "button" class= "btn cancel" onclick="closeForm()"> Close </button>
-                </form>
+                <div class="form-popup" id = "myForm">
+                    <form action="" class = "form-container">
+                        <div class="flex">
+                            <div class="topic">Each topic</div>
+                            <label for="close-btn">
+                                <div class="close-container">
+                                    <div class="leftright"></div>
+                                    <div class="rightleft"></div>
+                                    <label class="close">
+                                        <button type = "button"  id="close-btn"  class= "btn close" onclick="closeForm()"></button>
+                                    </label>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="flex">
+                            <button type = "button" class= "btn"> Scoreboard</button>
+                            <button type = "button" class= "btn"> Play</button>
+                        </div>
+                        </form>
+                </div>
             </div>
-        </div>
                 
-        <div class="second-col" id="rcorner">
+        <div class="second-col">
                 <button class="open-button" onclick="openForm()">Each topic</button>
                 <div class="form-popup" id = "myForm">
                     <form action="" class = "form-container">
@@ -38,7 +50,7 @@
                     </form>
                 </div>
         </div>
-        <div class="third-col" id="rcorner">
+        <div class="third-col">
                 <button class="open-button" onclick="openForm()">Each topic</button>
                 <div class="form-popup" id = "myForm">
                     <form action="" class = "form-container">
@@ -50,7 +62,7 @@
                     </form>
                 </div>
         </div>
-        <div class="fourth-col" id="rcorner">
+        <div class="fourth-col">
                 <button class="open-button" onclick="openForm()">Each topic</button>
                 <div class="form-popup" id = "myForm">
                     <form action="" class = "form-container">
@@ -65,7 +77,7 @@
     </div>
     
     <div class="severalbox2">
-        <div class="first-col" id="rcorner">
+        <div class="first-col">
                 <button class="open-button" onclick="openForm()">Each topic</button>
                 <div class="form-popup" id = "myForm">
                     <form action="" class = "form-container">
@@ -77,7 +89,7 @@
                     </form>
                 </div>
         </div>
-        <div class="second-col" id="rcorner">
+        <div class="second-col">
                 <button class="open-button" onclick="openForm()">Each topic</button>
                 <div class="form-popup" id = "myForm">
                     <form action="" class = "form-container">
@@ -89,7 +101,7 @@
                     </form>
                 </div>
         </div>
-        <div class="third-col" id="rcorner">
+        <div class="third-col" >
                 <button class="open-button" onclick="openForm()">Each topic</button>
                 <div class="form-popup" id = "myForm">
                     <form action="" class = "form-container">
@@ -101,7 +113,7 @@
                     </form>
                 </div>
         </div>
-        <div class="fourth-col" id="rcorner">
+        <div class="fourth-col">
                 <button class="open-button" onclick="openForm()">Each topic</button>
                 <div class="form-popup" id = "myForm">
                     <form action="" class = "form-container">
