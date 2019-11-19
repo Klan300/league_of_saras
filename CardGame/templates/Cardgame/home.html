@@ -14,10 +14,10 @@
 </head>
 
 <body>
-<h1 class="middle" id="head-color"> League of Saras</h1>
+<h1> League of Saras</h1>
     <div class="severalbox">
         {% for deck in deck_list %}
-        <div class="first-col">
+        <div class="col">
             <button class="open-button" onclick="openForm('{{deck.deck_name }}')">{{ deck.deck_name }}</button>
             <div class="modal" id="{{ deck.deck_name }}">
                 <div class="form-popup">
