@@ -7,20 +7,7 @@ from .forms import LoginForm
 
 
 def index(request):
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = LoginForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-            return redirect("index")
-
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = LoginForm()
-    return render(request, 'Cardgame/index.html', {'form': form})
+    return render(request, 'Cardgame/index.html')
     
 def views_logout(request):
     logout(request)

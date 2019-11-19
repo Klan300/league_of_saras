@@ -11,5 +11,4 @@ async function btn() {
     $(".start").addClass("hide");
     $(".form").addClass("views");
     $(".home").addClass("smaller");
-    await document.getElementById('#id_username').focus()
 }
