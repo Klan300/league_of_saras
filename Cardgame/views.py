@@ -23,3 +23,7 @@ def playing(request):
     return render(request,'Cardgame/playing.html',{'topic':topic,'cards':card_name},
     )
 
+
+def setting(request):
+    return render(request,'Cardgame/setting.html')
+    
