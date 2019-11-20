@@ -81,9 +81,27 @@ html {
 
 .signin {
     border-radius: 20px;
-    margin: 0px 5px 0px 5px;
+    margin: 10px;
     font-size: 15px;
 }
+
+.facebook-signin {
+  background-color: #4e72a8;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.facebook-signin:hover {
+  background-color:  #3d5881;
+  color: #ffffff;
+}
+
+.facebook {
+  width: auto;
+  height: 25px;
+  margin-right: 10px;
+}
+
 
 .google{
     width: auto;
@@ -137,6 +155,8 @@ html {
 .views {
   display: block;
 }
+
+
 
 @keyframes example {
   from {opacity: 1;}
