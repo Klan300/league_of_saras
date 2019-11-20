@@ -2,7 +2,6 @@ from django.http import HttpResponse
 from django.shortcuts import render ,redirect
 from django.contrib.auth import logout
 from .models import Deck
-from .forms import LoginForm
 
 
 
@@ -24,3 +23,9 @@ def playing(request):
     return render(request,'Cardgame/playing.html',{'topic':topic,'cards':card_name},
     )
 
+def home(request):
+    deck = Deck.objects.all()
+    context = {
+        'deck_list' : deck
+    }
+    return render(request, 'Cardgame/home.html',context)
