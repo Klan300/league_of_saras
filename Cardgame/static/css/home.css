@@ -19,7 +19,7 @@ body{
   justify-content: start;
 }
 
-.col {
+.first-col {
   width : 20%;
   height: 200px;
   margin:  2%;
