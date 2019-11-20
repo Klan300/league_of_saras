@@ -14,14 +14,13 @@ def views_logout(request):
 
 
 def playing(request):
-    topic = Deck.objects.all()[0]
+    topic = Deck.objects.all()
     total_card = list(topic.card_set.all())
     card_name = [i.card_name for i in total_card]
     print(card_name)
     # card_name = simplejson.dumps(card_name)
     # card_name = json.dumps(card_name)
-    return render(request,'Cardgame/playing.html',{'topic':topic,'cards':card_name},
-    )
+    return render(request,'Cardgame/playing.html',{'topic':topic,'cards':card_name},)
 
 
 def setting(request):
