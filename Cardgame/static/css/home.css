@@ -123,6 +123,7 @@ body{
     font-size: 20px;
   }
   
+  /* Add a red background color to the cancel button */
 
   .form-container .close {
     background-color: transparent;
