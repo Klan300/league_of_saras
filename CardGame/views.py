@@ -23,6 +23,12 @@ def playing(request):
     return render(request,'Cardgame/playing.html',{'topic':topic,'cards':card_name},)
 
 
+def home(request):
+    deck = Deck.objects.all()
+    context = {
+        'deck_list' : deck
+    }
+    return render(request, 'Cardgame/home.html',context)
 def setting(request):
     return render(request,'Cardgame/setting.html')
     
