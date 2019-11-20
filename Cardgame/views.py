@@ -14,7 +14,7 @@ def views_logout(request):
 
 
 def playing(request):
-    topic = Deck.objects.get(pk=1)
+    topic = Deck.objects.all()[0]
     total_card = list(topic.card_set.all())
     card_name = [i.card_name for i in total_card]
     print(card_name)
