@@ -3,8 +3,6 @@ from django.shortcuts import render ,redirect
 from django.contrib.auth import logout
 from .models import Deck
 
-
-
 def index(request):
     return render(request, 'Cardgame/index.html')
     
@@ -31,3 +29,12 @@ def home(request):
     return render(request, 'Cardgame/home.html',context)
 def setting(request):
     return render(request,'Cardgame/setting.html')
+
+def summary(request,name):
+    topic = Deck.objects.get(deck_name=name)
+    total_card = list(topic.card_set.all())
+    card_name = [i.card_name for i in total_card]
+
+    return render(request, 'Cardgame/summary.html',{'topic':topic,'cards':card_name})
+
+
