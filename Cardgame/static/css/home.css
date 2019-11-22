@@ -13,7 +13,7 @@ body{
 }
 
 .severalbox{
-  padding-top: 5%;
+  padding-top: 3%;
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
@@ -117,11 +117,14 @@ body{
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    width: 40%;
+    width: 35%;
     margin-bottom:10px;
     opacity: 0.8;
     font-size: 20px;
+    text-align: center;
+    text-decoration: none;
   }
+
   
   /* Add a red background color to the cancel button */
 
@@ -169,4 +172,9 @@ body{
     border-radius: 2px;
     transform: rotate(-45deg);
     transition: all .3s ease-in;
+  }
+
+  .footer {
+    width: 100%;
+    text-align: center;
   }
