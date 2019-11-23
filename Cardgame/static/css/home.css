@@ -70,7 +70,7 @@ body{
     border: none;
     cursor: pointer;
     opacity: 0.8;
-    width: 150px;
+    width: 100%;
   }
 
   .modal {
