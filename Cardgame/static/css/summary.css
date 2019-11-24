@@ -9,7 +9,49 @@
   }
   
   .summary-container {
+    margin: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
+
+  .summary-table{
+    margin-top: 50px;
+  }
+
+  .menu-button{
+    margin-top: 100px;
+  }
+
+  table, th, td {
+    border: 1px solid wheat;
+  }
+
+  table{
+    width: 400px;
+  }
+  th,td{
+    height: 50px;
+  }
+  #vocab{
+    background-color: brown;
+  }
+  #status{
+    background-color: yellowgreen;
+  }
+
+  .vocab{
+    background-color: orange;
+  }
+
+
+  .button{
+    width: 120px;
+    height: 60px;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    color: black;
+    font-size: 25px;
+    border: 5px solid wheat;
+    }

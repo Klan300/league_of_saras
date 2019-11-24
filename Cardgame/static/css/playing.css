@@ -46,11 +46,24 @@ border: 10px solid wheat;
 }
 
 .button{
+  width:80%;
   display: flex;
+/* flex-direction: column; */
+justify-content: space-around;
   margin: 50px;
 }
+.pass{
+  display:flex;
+}
+.correct{
+  display: flex;
+}
+.finish{
+  margin: 50px;
 
+}
 .btn{
 width: 120px;
 height: 60px;
+border: 5px solid wheat;
 }
