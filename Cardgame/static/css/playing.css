@@ -21,6 +21,8 @@ width: 500px;
 height: 300px;
 padding: 125px;
 border-radius: 20px;
+border: 10px solid wheat;
+
 
 }
 
@@ -44,5 +46,11 @@ border-radius: 20px;
 }
 
 .button{
+  display: flex;
   margin: 50px;
+}
+
+.btn{
+width: 120px;
+height: 60px;
 }

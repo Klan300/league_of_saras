@@ -9,14 +9,44 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="{% static 'css/summary.css'%}">
-<link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet"
+<link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
+<div>
+    <div><h1>{{topic.deck_name}}</h1></div>
+    <div id = "summary_table">
+    <table class="table table-borderless">
+            <tbody id='table'>
+              <script>
+                var allCard = {{cards|safe}}
+                let history = JSON.parse(localStorage['result'])
+                var buildTable = "";
+                var total_card = {{ topic.card_set.count }};
+                for(var i =0; i<total_card;i++){
+                  buildTable+="<tr>";
+                  buildTable+="<td>"+allCard[i]+"</td>"
+                  if(history[i]=="1"){
+                    buildTable+="<td>Correct</td>"
+                  }
+                  else if(history[i]=="0"){
+                    buildTable+="<td>Pass</td>"
+                  }
+                  
+                }
+                document.getElementById('table').innerHTML = buildTable
+              </script>
+            </tbody>
 
+    </table>
+    </div>
+</div>
 </body>
 
+
+
 </html>
+

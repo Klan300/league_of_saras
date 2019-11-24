@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="{% static 'css/playing.css'%}">
-<link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet"
+<link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -29,12 +29,12 @@
         </div>
         
         <div class="button" id="button">
-            <button type="button" id="pass" style="border-radius: 20px;" class="btn btn-danger" onclick="change_word(id),change_bg(id)">Pass</button>
+            <button type="button" id="pass" style="border-radius: 20px;" class="btn btn-danger" onclick="change_word(id),change_bg(id)"><font size=5>Pass</font></button>
             &nbsp;&nbsp;<button type="button" style="border-radius: 20px;" id="correct" class="btn btn-success"
-                onclick="change_word(id),change_bg(id)">Correct</button>
+                onclick="change_word(id),change_bg(id)"><font size=5>Correct</font></button>
         </div>
         <div class="button">
-        <button type="button" id="end" style="border-radius: 20px;" class="btn btn-primary">finish</button>
+        <button type="button" id="end" style="border-radius: 20px;" class="btn btn-primary"><font size=5>finish</font></button>
         </div>
     </div>
 </body>
@@ -66,7 +66,7 @@
             timeleft=0
         }        
     }
-    var timeleft = 10;
+    var timeleft = 100;
     document.getElementById("end").style.display = "none";
     var downloadTimer = setInterval(function () {
     document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
@@ -80,7 +80,7 @@
 
     }
     }, 1000);
-    a = JSON.parse(localStorage['result'])
+    //a = JSON.parse(localStorage['result']) 
 
 </script>
 
