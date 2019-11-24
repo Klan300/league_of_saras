@@ -13,8 +13,8 @@ def views_logout(request):
     return redirect("index")
 
 
-def playing(request):
-    topic = Deck.objects.all()
+def playing(request,name):
+    topic = Deck.objects.get(deck_name=name)
     total_card = list(topic.card_set.all())
     card_name = [i.card_name for i in total_card]
     print(card_name)
@@ -31,4 +31,3 @@ def home(request):
     return render(request, 'Cardgame/home.html',context)
 def setting(request):
     return render(request,'Cardgame/setting.html')
-    
