@@ -7,5 +7,9 @@
   body {
     background-color: #536d82;  
   }
-
   
+  .summary-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
