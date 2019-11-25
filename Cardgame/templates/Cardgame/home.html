@@ -3,59 +3,86 @@
 {% load static %}
 
 <head>
+    {% static "image/google-logo.png" as google %}
+    {% static "image/image.png" as facebook  %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> League of saras</title>
-    <link rel="stylesheet" href="{% static 'css/home.css'%}">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
 </head>
 
-<body>
-<div class="header"><h1 class="middle" id="head-color"> League of Saras</h1></div>
-<div class="severalbox">
+<body style="background-color: #536d82;">
+    <div class="header">
+        <div class="user">
+            {% if user.is_authenticated %}
+            <p class="username">
+                welcome {{user.username }}
+            </p>
+            <a class="btn btn-danger" href="{% url "logout" %}">
+                logout
+            </a>
+            {%endif%}
+        </div>
+        <h1 class="middle" id="head-color"> League of Saras</h1>
+    </div>
+    <div class="severalbox">
         {% for deck in deck_list %}
+        {% if deck.number_of_card >= 9 %}
         <div class="first-col">
             <button class="open-button" onclick="openForm('{{deck.deck_name }}')">{{ deck.deck_name }}</button>
             <div class="modal" id="{{ deck.deck_name }}">
-            <div class="form-popup">
-                <form action="" class="form-container">
-                    <div class="flex top">
-                        <div class="topic">
-                            {{ deck.deck_name }}
+                <div class="form-popup">
+                    <form action="" class="form-container">
+                        <div class="flex top">
+                            <div class="topic">
+                                {{ deck.deck_name }}
+                            </div>
+                            <div class="close-container">
+                                <div class="leftright"></div>
+                                <div class="rightleft"></div>
+                                <button type="button" id="close-btn" class="bt close"
+                                    onclick="closeForm('{{ deck.deck_name }}')"></button>
+                            </div>
                         </div>
-                        <div class="close-container">
-                            <div class="leftright"></div>
-                            <div class="rightleft"></div>
-                            <button type="button" id="close-btn" class="btn close" onclick="closeForm('{{ deck.deck_name }}')"></button>
+                        <div class="flex bottom">
+                            <a class="bt" href="#"> Scoreboard</a>
+                            <a class="bt" href='{% url "playing" deck.deck_name %}'> Play</a>
                         </div>
-                    </div>
-                    <div class="flex bottom">
-                        <a type="button" class="btn" href="#"> Scoreboard</a>
-                        <a type="button" class="btn" href='{% url "playing" deck.deck_name %}'> Play</a>
-                    </div>
-                </form>
-            </div>
+                    </form>
+                </div>
             </div>
         </div>
+        {% else %}
+        <div class="mute-col">
+            <button class="mute">{{ deck.deck_name }}</button>
+            <div class="modal" id="{{ deck.deck_name }}">
+                <div class="form-popup">
+                    <form action="" class="form-container">
+                        <div class="flex top">
+                            <div class="topic">
+                                {{ deck.deck_name }}
+                            </div>
+                            <div class="close-container">
+                                <div class="leftright"></div>
+                                <div class="rightleft"></div>
+                                <button type="button" id="close-btn" class="btn close"
+                                    onclick="closeForm('{{ deck.deck_name }}')"></button>
+                            </div>
+                        </div>
+                        <div class="flex bottom">
+                            <a type="button" class="bt" href="#"> Scoreboard</a>
+                            <a type="button" class="bt" href='{% url "playing" deck.deck_name %}'> Play</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {%endif%}
         {% endfor %}
-        <div class="footer">
-            {% if user.is_authenticated %}
-            <p class="user">
-                welcome {{user.username }}
-            </p>
-          <a class="btn btn-danger" href="{% url "logout" %}">
-            logout
-          </a>
-          {% else %}
-          <a href="{% url "social:begin" "google-oauth2" %}" class="btn btn-light signin"><img src="{{ google }}"
-              class="google" alt="My image">Sign in with Google</a><br style="margin: 10px;">
-          <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-light signin facebook-signin"><img
-              src="{{ facebook }}" class="facebook" alt="My image">Sign in with Facebook</a>
-          {% endif %}
-        </div>
     </div>
 
 

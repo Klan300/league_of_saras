@@ -1,7 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render ,redirect
 from django.contrib.auth import logout
+from django.contrib.auth.decorators import login_required
 from .models import Deck
+
 
 
 
@@ -12,7 +14,19 @@ def views_logout(request):
     logout(request)
     return redirect("index")
 
+@login_required(login_url='/')
+def home(request):
+    deck = Deck.objects.all()
+    context = {
+        'deck_list' : deck
+    }
+    return render(request, 'Cardgame/home.html',context)
 
+@login_required(login_url='/')
+def setting(request):
+    return render(request,'Cardgame/setting.html')
+
+@login_required(login_url='/')
 def playing(request,name):
     topic = Deck.objects.get(deck_name=name)
     total_card = list(topic.card_set.all())
@@ -22,12 +36,3 @@ def playing(request,name):
     # card_name = json.dumps(card_name)
     return render(request,'Cardgame/playing.html',{'topic':topic,'cards':card_name},)
 
-
-def home(request):
-    deck = Deck.objects.all()
-    context = {
-        'deck_list' : deck
-    }
-    return render(request, 'Cardgame/home.html',context)
-def setting(request):
-    return render(request,'Cardgame/setting.html')
