@@ -17,39 +17,54 @@
 
 <body>
   <div class="summary-container">
-    <div>
-      <h1>{{topic.deck_name}}</h1>
+    <div class="header">
+      <div class="topic">
+      <h1>Result "{{topic.deck_name}}"</h1>
     </div>
+      <div id="score">
+        </div>
+    </div>
+    
     <div id="summary_table" class="summary-table">
-      <table id='table'>
-        <tr>
+      <table id='table' class="tableBodyScroll">
+        <thead>
+          <th id="no">Card no.</th>
           <th id="vocab">Vocabulary</th>
           <th id="status">Status</th>
-        </tr>
+        </thead>
         <script>
           var allCard = {{ cards| safe}}
-          let history = JSON.parse(localStorage['result'])
-          var buildTable = "";
           var total_card = {{ topic.card_set.count }};
+          let history = JSON.parse(localStorage['result'])
+          var score = 0;
           for (var i = 0; i < total_card; i++) {
-            buildTable += "<tr>";
-            //buildTable += "<td>"+(i+1)+"."+"</td>"
-            buildTable += '<td class="vocab">' + allCard[i] + '</td>'
+            if (history[i] == '1') {
+              score += 1;
+            }
+          }
+          document.getElementById('score').innerHTML="<h3>Score: "+score+"</h3>"
+          var buildTable = '<tbody>';
+          for (var i = 0; i < total_card; i++) {
+            buildTable += '<tr>';
+            buildTable += '<td style="color:black">' + (i + 1) + "." + "</td>"
+            buildTable += '<td style="color:black">' + allCard[i] + '</td>'
             if (history[i] == "1") {
-              buildTable += '<td style="background-color:green">&#10004</td>'
+              buildTable += '<td style="color:green">&#10004</td>'
             }
             else if (history[i] == "0") {
-              buildTable += '<td style="background-color:red">&#10008</td>'
+              buildTable += '<td style="color:red">&#10008</td>'
             }
 
           }
-          document.getElementById('table').innerHTML += buildTable
+          document.getElementById('table').innerHTML += buildTable + "</tbody>"
 
         </script>
       </table>
     </div>
     <div class="menu-button">
-      <button type="button" class="button">Menu</button>
+      <div id = "menu"><button type="button" class="button">Menu</button>
+      </div>
+      <div id = "play-again"><button type="button" class="button play-again">Play again</button></div>
     </div>
   </div>
 </body>
