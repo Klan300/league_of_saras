@@ -18,11 +18,11 @@ body {
 
 .header {
   height: 120px;
-  width: 505px;
+  width: 504px;
   background-color: #D98824;
-  border-top: 2px solid black;
-  border-right: 2px solid black;
-  border-left: 2px solid black;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  border-left: 2px solid white;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
@@ -32,7 +32,8 @@ body {
 }
 
 table {
-  border: 2px solid black
+  border-left: 2px solid white;
+  border-right: 2px solid white;
 }
 
 .tableBodyScroll tbody {
@@ -86,11 +87,9 @@ tbody {
   padding-top: 20px;
   background-color: #D98824;
   display: flex;
-  width: 505px;
+  width: 504px;
   justify-content: space-around;
-  border-bottom: 2px solid black;
-  border-right: 2px solid black;
-  border-left: 2px solid black;
+  border: 2px solid white;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 
