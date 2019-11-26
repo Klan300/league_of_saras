@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="{% static 'css/playing.css'%}">
-<link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet"
+<link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -17,8 +17,10 @@
 
 <body>
     <div class="play-container">
-        <div><h1>{{topic.deck_name}}</h1></div>
-        <div class = "time" id="countdown"></div>
+        <div>
+            <h1>{{topic.deck_name}}</h1>
+        </div>
+        <div class="time" id="countdown"></div>
         <br />
         <div class="score">
             <h6>Score: <span id="score">0</span></h6>
@@ -27,83 +29,129 @@
         <div class="box_word">
             <h2 id="word"></h2>
         </div>
-        
+
         <div class="button" id="button">
-            <button type="button" id="pass" style="border-radius: 20px;" class="btn btn-danger" onclick="change_word(id),change_bg(id)">Pass</button>
-            &nbsp;&nbsp;<button type="button" style="border-radius: 20px;" id="correct" class="btn btn-success"
-                onclick="change_word(id),change_bg(id)">Correct</button>
+            <div class="correct">
+                <button type="button" id="pass" style="border-radius: 20px;" class="btn btn-danger"
+                    onclick="change_word(id),change_bg(id)">
+                    <font size=5>Pass</font>
+                </button>
+            </div>
+            <div class="pass">
+                <button type="button" style="border-radius: 20px;" id="correct" class="btn btn-success"
+                    onclick="change_word(id),change_bg(id)">
+                    <font size=5>Correct</font>
+                </button>
+            </div>
         </div>
-        <div class="button">
-        <button type="button" id="end" style="border-radius: 20px;" class="btn btn-primary">finish</button>
+        <div class="finish">
+            <button type="button" id="end" style="border-radius: 20px;" class="btn btn-warning">
+                <font size=5>finish</font>
+            </button>
         </div>
     </div>
 </body>
 <script>
+    var many_card = {{ topic.card_set.count }}
     var total_card = {{ topic.card_set.count }} -1;
     var index = 0
     var count = 0
     var score = 0
+    var summary = []
     cards = {{ cards | safe }}
     document.getElementById("word").innerHTML = cards[0]
     function change_word(button) {
         count += 1
         if (count <= total_card) {
-            index += 1 
+            index += 1
             document.getElementById("word").innerHTML = cards[index]
         }
         if (button == "correct") {
-            if (count<= total_card){
-            score += 1
+            if (count <= total_card) {
+                score += 1
             }
             document.getElementById("score").innerHTML = score
+            summary.push('1')
         }
-        if (count>total_card){
-            timeleft=0
-        }        
+        else if (button == "pass") {
+            summary.push('0')
+        }
+        if (count > total_card) {
+            timeleft = 0
+        }
     }
-    var timeleft = 10;
+
+    timer = JSON.parse(localStorage['timer']);
+    if (timer=="45s"){
+        timeleft=45
+    }
+    else if (timer=="60s"){
+        timeleft = 60
+    }
+    else if (timer=="90s"){
+        timeleft = 90
+    }
+    timeleft=10
     document.getElementById("end").style.display = "none";
     var downloadTimer = setInterval(function () {
-    document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
-    timeleft -= 1;
-    if (timeleft < 0) {
-        clearInterval(downloadTimer);
-        document.getElementById("countdown").innerHTML = "Game over"
-        document.getElementById("button").style.display = "none";
-        document.getElementById("end").style.display = "inline";
-    }
+        document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
+        timeleft -= 1;
+        if (timeleft < 0) {
+            clearInterval(downloadTimer);
+            document.getElementById("countdown").innerHTML = "Game over"
+            document.getElementById("button").style.display = "none";
+            document.getElementById("end").style.display = "inline";
+        }
+        localStorage.setItem('result', JSON.stringify(summary))
+
     }, 1000);
+    
+
+
+    //a = JSON.parse(localStorage['result'])
+
 </script>
 
 <script>
+    var green = "#46AD43"
+    var red = "#EF5319"
+    var bg = " #536d82"
+    function change_bg(button) {
+        var lefttime = 1;
+        if (button == "pass") {
+            document.querySelector("body").style.background = red
+            var click = setInterval(function () {
+                lefttime -= 1;
+                if (lefttime < 0.5) {
+                    document.querySelector("body").style.background = bg
+                }
+            }, 1000)
+        }
+        else if (button == "correct") {
+            document.querySelector("body").style.background = green
+            var click = setInterval(function () {
+                lefttime -= 1;
+                if (lefttime < 0.5) {
+                    document.querySelector("body").style.background = bg
+                }
+            }, 1000)
+        }
+    }
 </script>
 
-<script>
-var green = "#46AD43"
-var red = "#EF5319"
-var bg = " #536d82"
-function change_bg(button){
-    var lefttime = 1;
-    if (button== "pass") {
-        document.querySelector("body").style.background = red
-        var click = setInterval(function () {
-        lefttime -= 1;
-        if (lefttime<0.5){
-            document.querySelector("body").style.background = bg
-        }
-    },1000)
+<!-- <script>
+var summary = []
+function result(button){
+
+    if (button=="pass"){
+        summary.push('0')
     }
-    else if (button=="correct") {
-        document.querySelector("body").style.background = green
-        var click = setInterval(function () {
-        lefttime -= 1;
-        if (lefttime<0.5){
-            document.querySelector("body").style.background = bg
-        }
-    },1000)
+    else{
+        summary.push('1')
     }
+    console.log(summary)
 }
-</script>
 
+</script> -->
 
 </html>

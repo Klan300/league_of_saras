@@ -7,5 +7,6 @@ urlpatterns = [
     path('logout/',views.views_logout, name='logout'),
     path('home/', views.home, name='home'),
     path('setting/', views.setting, name='setting'),
-    # path('/scoreboard/', views.scoreboard, name='scoreboard')
+    path('playing/<str:name>/summary', views.summary, name="summary")
+    # path('scoreboard/', views.scoreboard, name='scoreboard')
 ]
