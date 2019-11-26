@@ -62,19 +62,19 @@
   </div>
 
   <script>
-    var interval="60s"
+    var interval="60"
     localStorage.setItem('timer', JSON.stringify(interval));
     function get_time(time){
       if(time =="45s"){
-        interval="45s"
+        interval="45"
         localStorage.setItem('timer', JSON.stringify(interval));
       }
       else if(time == "60s"){
-        interval="60s"
+        interval="60"
         localStorage.setItem('timer', JSON.stringify(interval));
       }
       else if(time == "90s"){
-        interval="90s"
+        interval="90"
         localStorage.setItem('timer', JSON.stringify(interval));
       }
     }

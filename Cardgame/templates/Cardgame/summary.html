@@ -38,11 +38,11 @@
           let history = JSON.parse(localStorage['result'])
           var score = 0;
           var count = 0;
-          if (history.length < total_card){
-            for( var a=history.length; a<total_card;a++){
-              history.push('0')
-            }
-          }
+          //if (history.length < total_card){
+            //for( var a=history.length; a<total_card;a++){
+              //history.push('0')
+            //}
+          //}
           for (var c=0; c<history.length;c++){
             if(history[c]=='1'){
               score += 1;
@@ -51,7 +51,7 @@
           document.getElementById('score').innerHTML="<h3>Score: "+score+"</h3>"
           var buildTable = '<tbody>';
           
-          for (var i = 0; i < total_card; i++) {
+          for (var i = 0; i < history.length; i++) {
             buildTable += '<tr>';
             buildTable += '<td style="color:black">' + (i + 1) + "." + "</td>"
             buildTable += '<td style="color:black">' + allCard[i] + '</td>'
