@@ -37,11 +37,6 @@
           var total_card = {{ topic.card_set.count }};
           let history = JSON.parse(localStorage['result'])
           var score = 0;
-          for (var i = 0; i < total_card; i++) {
-            if (history[i] == '1') {
-              score += 1;
-            }
-          }
           document.getElementById('score').innerHTML="<h3>Score: "+score+"</h3>"
           var buildTable = '<tbody>';
           for (var i = 0; i < total_card; i++) {

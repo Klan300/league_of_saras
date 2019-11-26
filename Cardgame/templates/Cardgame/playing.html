@@ -52,6 +52,7 @@
     </div>
 </body>
 <script>
+    var many_card = {{ topic.card_set.count }}
     var total_card = {{ topic.card_set.count }} -1;
     var index = 0
     var count = 0
@@ -79,7 +80,18 @@
             timeleft = 0
         }
     }
-    var timeleft = 100;
+
+    timer = JSON.parse(localStorage['timer']);
+    if (timer=="45s"){
+        timeleft=45
+    }
+    else if (timer=="60s"){
+        timeleft = 60
+    }
+    else if (timer=="90s"){
+        timeleft = 90
+    }
+    timeleft=10
     document.getElementById("end").style.display = "none";
     var downloadTimer = setInterval(function () {
         document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
@@ -89,10 +101,13 @@
             document.getElementById("countdown").innerHTML = "Game over"
             document.getElementById("button").style.display = "none";
             document.getElementById("end").style.display = "inline";
-            localStorage.setItem('result', JSON.stringify(summary))
-
         }
+        localStorage.setItem('result', JSON.stringify(summary))
+
     }, 1000);
+    
+
+
     //a = JSON.parse(localStorage['result'])
 
 </script>
