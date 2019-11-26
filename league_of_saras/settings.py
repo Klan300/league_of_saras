@@ -114,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 LOGIN_URL = '/auth/login/google-oauth2/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/home'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = '/'
 SECRET_KEY = 'd%$eo0homjyjzg*)gh0)1m09)1ds7xe3$v8k*t0c-_vk7ydl8-'
