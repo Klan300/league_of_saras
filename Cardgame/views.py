@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render ,redirect
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
@@ -33,13 +33,15 @@ def setting(request):
 
 @login_required(login_url='/')
 def playing(request,name):
-    topic = Deck.objects.get(deck_name=name)
-    total_card = list(topic.card_set.all())
-    card_name = [i.card_name for i in total_card]
-    print(card_name)
-    # card_name = simplejson.dumps(card_name)
-    # card_name = json.dumps(card_name)
-    return render(request,'Cardgame/playing.html',{'topic':topic,'cards':card_name},)
+    try:
+        topic = Deck.objects.get(deck_name=name)
+        total_card = list(topic.card_set.all())
+        card_name = [i.card_name for i in total_card]
+
+        return render(request,'Cardgame/playing.html',{'topic':topic,'cards':card_name},)
+
+    except :
+        return render(request,'Cardgame/404.html')
 
 
 @login_required(login_url='/')
@@ -49,5 +51,7 @@ def summary(request,name):
     card_name = [i.card_name for i in total_card]
 
     return render(request, 'Cardgame/summary.html',{'topic':topic,'cards':card_name})
+
+
 
 
