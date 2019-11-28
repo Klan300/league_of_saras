@@ -15,8 +15,9 @@ While playing this game, a player will have a time limit, the game will end when
 
 
 ## Documents
-- **Project Proposal**: [Project Proposal on Google Docs](https://docs.google.com/document/d/1kjmwQOL9fKmXiI1_uqLdV-asIle4mSzEQGIRGIKzBFo/edit#)
-- **Iteration plans**: [Iteration plans on Google plans](https://docs.google.com/document/d/1C6C2YfqwmR7YsCBz39rs0z9va9YHM7S1Zz55n6cdEh8/edit)
-- **Task Board**: [Task board on Trello](https://trello.com/b/5IZQzFnU/league-of-saras)
-- **Code Review Script and Checklist**: [Code Review Script and Checklist on Google Docs](https://docs.google.com/document/d/1zPOBC1oeVHnR0qHtA764ClV9Aj7-xVub59CRoCc4p6o/edit?usp=sharing)
-- **Sprint Retrospective and Milestones**: [Sprint Retrospective and Milestones on Google Docs](https://docs.google.com/document/d/16zYudrIcDCM-InB-exEYpuzSn05VFGZU2sFMxBeu_Aw/edit?usp=sharing)
+- **Project Proposal**: [Google Docs](https://docs.google.com/document/d/1kjmwQOL9fKmXiI1_uqLdV-asIle4mSzEQGIRGIKzBFo/edit#)
+- **Iteration plans**: [Google Docs](https://docs.google.com/document/d/1C6C2YfqwmR7YsCBz39rs0z9va9YHM7S1Zz55n6cdEh8/edit)
+- **Iteration Script**: [Google Docs](https://docs.google.com/document/d/10C5QuEddw02vy9iqMQmwP2vWviJNh3yp-Oah81X_mXQ/edit?usp=sharing)
+- **Task Board**: [Trello](https://trello.com/b/5IZQzFnU/league-of-saras)
+- **Code Review Script and Checklist**: [Google Docs](https://docs.google.com/document/d/1zPOBC1oeVHnR0qHtA764ClV9Aj7-xVub59CRoCc4p6o/edit?usp=sharing)
+- **Sprint Retrospective and Milestones**: [Google Docs](https://docs.google.com/document/d/16zYudrIcDCM-InB-exEYpuzSn05VFGZU2sFMxBeu_Aw/edit?usp=sharing)
