@@ -19,4 +19,4 @@ While playing this game, a player will have a time limit, the game will end when
 - **Iteration plans**: [Iteration plans on Google plans](https://docs.google.com/document/d/1C6C2YfqwmR7YsCBz39rs0z9va9YHM7S1Zz55n6cdEh8/edit)
 - **Task Board**: [Task board on Trello](https://trello.com/b/5IZQzFnU/league-of-saras)
 - **Code Review Script and Checklist**: [Code Review Script and Checklist on Google Docs](https://docs.google.com/document/d/1zPOBC1oeVHnR0qHtA764ClV9Aj7-xVub59CRoCc4p6o/edit?usp=sharing)
-- **Sprint Retrospective and Milestones**: [Sprint Retrospective and Milestones](https://docs.google.com/document/d/16zYudrIcDCM-InB-exEYpuzSn05VFGZU2sFMxBeu_Aw/edit)
+- **Sprint Retrospective and Milestones**: [Sprint Retrospective and Milestones](https://docs.google.com/document/d/16zYudrIcDCM-InB-exEYpuzSn05VFGZU2sFMxBeu_Aw/edit?usp=sharing)
