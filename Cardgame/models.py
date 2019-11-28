@@ -7,7 +7,6 @@ from django.contrib.auth.models import User
 class Deck(models.Model):
     deck_name = models.CharField(max_length=200,unique=True)
 
-
     def number_of_card(self):
         deck = Deck.objects.filter(deck_name=self.deck_name)[0]
         return deck.card_set.count()
