@@ -29,7 +29,7 @@ class TestListPage(StaticLiveServerTestCase):
     def tearDown(self):
         self.browser.close()
     
-    def test_no_projects_alert_is_displayed(self):
+    def test_main_page(self):
         self.browser.get(self.live_server_url)
 
         # The user requests the page for the first time
