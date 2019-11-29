@@ -12,3 +12,8 @@ install:
  # script to run tests. Script can have many commands, one per line.
 script: 
   - python manage.py test
+
+branches:
+  only:
+    - master
+    - testcase
