@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 from django.http import HttpResponse, Http404
+=======
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
+>>>>>>> pair-page
 from django.shortcuts import render ,redirect
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
-from .models import Deck
+from .models import Deck, Playerscore
+from django.contrib.auth.models import User
 
 
 
@@ -27,8 +33,9 @@ def home(request):
 
 
 @login_required(login_url='/')
-def setting(request):
-    return render(request,'Cardgame/setting.html')
+def setting(request,name):
+    topic = Deck.objects.get(deck_name=name)
+    return render(request,'Cardgame/setting.html',{'topic':topic})
 
 
 @login_required(login_url='/')
@@ -55,3 +62,15 @@ def summary(request,name):
 
 
 
+def scoreboard(request):
+    return render(request, 'Cardgame/scoreboard.html') 
+
+def save_score(request,name):
+    score = int(request.POST['score'])
+    time = int(request.POST['time'][:2])
+    user = User.objects.get(username = request.POST['user'])
+    deck = Deck.objects.get(deck_name = name)
+    player = Playerscore(score = score ,time= time , user= user , deck = deck)
+    player.save() 
+    print('save')
+    return redirect('scoreboard')
