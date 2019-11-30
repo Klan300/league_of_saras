@@ -31,7 +31,7 @@ class TestListPage(StaticLiveServerTestCase):
     def tearDown(self):
         self.browser.close()
     
-    def test_main_page(self):
+    def test_first_page(self):
         self.browser.get(self.live_server_url)
 
         # The user requests the page for the first time
@@ -41,7 +41,7 @@ class TestListPage(StaticLiveServerTestCase):
             'league of saras'
         )
     
-    def test_main_page_redirect_to_login_facebook(self):
+    def test_login_page_redirect_to_login_facebook(self):
         self.browser.get(self.live_server_url)
         self.browser.find_element_by_id('btn').click()
         sleep(1)
@@ -49,7 +49,7 @@ class TestListPage(StaticLiveServerTestCase):
         url = urlparse(self.browser.current_url)
         self.assertEquals(url.netloc, 'www.facebook.com')
 
-    def test_main_page_redirect_to_login_google(self):
+    def test_login_page_redirect_to_login_google(self):
         self.browser.get(self.live_server_url)
         self.browser.find_element_by_id('btn').click()
         sleep(1)
