@@ -83,16 +83,17 @@
     }
 
     timer = JSON.parse(localStorage['timer']);
-    if (timer=="45s"){
+    if (timer=="45"){
         timeleft=45
     }
-    else if (timer=="60s"){
+    else if (timer=="60"){
         timeleft = 60
     }
-    else if (timer=="90s"){
+    else if (timer=="90"){
         timeleft = 90
     }
     document.getElementById("end").style.display = "none";
+    document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
     var downloadTimer = setInterval(function () {
         document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
         timer = JSON.parse(localStorage['timer']);

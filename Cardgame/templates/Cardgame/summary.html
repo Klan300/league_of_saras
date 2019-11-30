@@ -33,6 +33,7 @@
           <th id="status">Status</th>
         </thead>
         <script>
+          var name;
           var allCard = {{ cards| safe}}
           var total_card = {{ topic.card_set.count }};
           let history = JSON.parse(localStorage['result'])
@@ -62,14 +63,19 @@
               buildTable += '<td style="color:red">&#10008</td>'
             }
           }
-          document.getElementById('table').innerHTML += buildTable + "</tbody>"
+          time = JSON.parse(localStorage['timer']);
+          document.getElementById('table').innerHTML += buildTable + "</tbody>";
         </script>
+
       </table>
     </div>
     <div class="menu-button">
-      <div id = "menu"><button type="button" class="button">Menu</button>
+      <div id = "menu">
+        <button type="button" class="button">Menu</button>
       </div>
-      <div id = "play-again"><button type="button" class="button play-again">Scoreboard</button></div>
+      <div id="play-again">
+          <a href="/scoreboard/{{name}}/{{time}}"><button type="button" class="button play-again">Scoreboard</button></a>
+      </div>
     </div>
   </div>
 </body>

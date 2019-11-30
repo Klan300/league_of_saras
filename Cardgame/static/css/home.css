@@ -17,7 +17,7 @@ body{
 }
 
 .user {
-  width: 100%;
+  color: white;
   position: absolute;
   top: 35px;
   left: 35px;
@@ -73,7 +73,7 @@ margin-right: 10px;
   padding-top: 3%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: center;
 }
 
 .first-col {

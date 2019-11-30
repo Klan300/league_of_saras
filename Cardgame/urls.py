@@ -8,6 +8,6 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('setting/<str:name>', views.setting, name='setting'),
     path('playing/<str:name>/summary', views.summary, name="summary"),
-    path('scoreboard/', views.scoreboard, name='scoreboard'),
+    path('scoreboard/<str:name>/<int:time>', views.scoreboard, name='scoreboard'),
     path('save/<str:name>',views.save_score,name='save')
 ]

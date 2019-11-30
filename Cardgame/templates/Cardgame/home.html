@@ -49,8 +49,8 @@
                             </div>
                         </div>
                         <div class="flex bottom">
-                            <a class="bt" href="#"> Scoreboard</a>
-                            <a class="bt" href='{% url "playing" deck.deck_name %}'> Play</a>
+                            <a class="bt" href="/scoreboard/{{ deck.deck_name}}/45"> Scoreboard</a>
+                            <a class="bt" href='{% url "setting" deck.deck_name %}'> Play</a>
                         </div>
                     </form>
                 </div>
@@ -75,7 +75,7 @@
                         </div>
                         <div class="flex bottom">
                             <a type="button" class="bt" href="#"> Scoreboard</a>
-                            <a type="button" class="bt" href='{% url "playing" deck.deck_name %}'> Play</a>
+                            <a type="button" class="bt" href='{% url "setting" deck.deck_name %}'> Play</a>
                         </div>
                     </form>
                 </div>
