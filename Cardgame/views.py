@@ -66,12 +66,28 @@ def summary(request,name):
 @login_required(login_url='/')
 def scoreboard(request,name,time):
     topic = Deck.objects.get(deck_name=name)
-    player_score = Playerscore.objects.filter( deck = topic).filter(time = time).order_by('-score')
-    for player in player_score:
-        print(f'{player.deck.deck_name}    {player.time} {player.score} {player.user.username}')
-    
-    context = { 'player_score' : player_score }
-
+    player_score_45 = Playerscore.objects.filter( deck = topic).filter(time = 45).order_by('-score')
+    name_45 = []
+    score_45 = []
+    player_score_60 = Playerscore.objects.filter(deck = topic).filter(time = 60).order_by('-score')
+    name_60 = []
+    score_60 = []
+    player_score_90 = Playerscore.objects.filter(deck = topic).filter(time = 90).order_by('-score')
+    name_90 = []
+    score_90 = []
+    for player in player_score_45:
+        name_45.append(player.user.username)
+        score_45.append(str(player.score))
+    for player in player_score_60:
+        name_60.append(player.user.username)
+        score_60.append(str(player.score))    
+    for player in player_score_90:
+        name_90.append(player.user.username)
+        score_90.append(str(player.score))    
+    context = { 'score45' : score_45 ,'name45':name_45,'score60':score_60,
+    'name60':name_60,'score90':score_90,'name90':name_90,'topic':topic}
+    print(name_45)
+    print(score_45)
     return render(request, 'Cardgame/scoreboard.html' , context) 
 
 

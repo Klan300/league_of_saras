@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Deck,Card
+from .models import Deck,Card,Playerscore
 
 
 class CardInline(admin.StackedInline):
@@ -15,3 +15,4 @@ class DeckAdmin(admin.ModelAdmin):
     list_display = ('deck_name','number_of_card')
 
 admin.site.register(Deck, DeckAdmin)
+admin.site.register(Playerscore)

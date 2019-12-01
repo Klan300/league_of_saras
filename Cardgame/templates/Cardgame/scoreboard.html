@@ -2,64 +2,180 @@
 <html lang="en">
 
 <head>
-    <title>Socreboard</title>
+    <title>Scoreboard</title>
 </head>
+{% load static %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="scoreboard.css">
-
+<link rel="stylesheet" href="{% static 'css/scoreboard.css'%}">
+<link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <br />
-    <h1 style="text-align:center;">Scoreboard</h1><br />
-    <h2 style="text-align:center;">This will be topic</h2>
-    <h3 style="text-align:center;">topic duration</h3><br /><br/>
-    <div style="background-color: grey;border-radius: 8px;" class="box_table">
+    <div class="scoreboard-container">
+        <div class="header">
+            <div class="topic">
+                <h1>Scoreboard "{{topic.deck_name}}"</h1>
+            </div>
+        </div>
+        <div class="time-button">
+            <div id="45s">
+                <button id="45" type="button" onclick="change_time(id)" class="button">45s</button>
+            </div>
 
-        <table class="table table-borderless">
-            <thead>
-                <tr style="color:brown;">
-                    <th>Ranking</th>
-                    <th>User</th>
-                    <th>Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Doe</td>
-                    <td>9999</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Moe</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Dooley</td>
-                    <td>0</td>
-                </tr>
-            </tbody>
-        </table>
-        <br />
-        <br />
+            <div id="60s">
+                <a><button id="60" type="button" onclick="change_time(id)" class="button play-again">60s</button></a>
+            </div>
+            <div id="90s">
+                <a><button id="90" type="button" onclick="change_time(id)" class="button play-again">90s</button></a>
+            </div>
+        </div>
+
+        <div id="summary_table" class="summary-table">
+            <table id='table' class="tableBodyScroll">
+                <thead>
+                    <th id="no">Rank</th>
+                    <th id="vocab">User</th>
+                    <th id="status">Score</th>
+                </thead>
+                <tbody id="body">
+                </tbody>
+                <script>
+                    
+
+                    timer = JSON.parse(localStorage['timer']);
+                    time = timer
+                    if (time == "45") {
+                        var allUser = {{ name45| safe}};
+                        var userScore = {{ score45| safe }};
+                        var buildTable = '';
+
+                    for (var i = 0; i < allUser.length; i++) {
+                        buildTable += '<tr>';
+                        buildTable += '<td style="color:black">' + (i + 1) + "." + "</td>"
+                        buildTable += '<td style="color:black">' + allUser[i] + '</td>'
+                        buildTable += '<td style="color:black">' + userScore[i] + '</td>'
+                    }
+                    document.getElementById('body').innerHTML = buildTable;
+                    document.getElementById('45').style.backgroundColor = "green"
+
+
+
+                    }
+                    else if (time == "60") {
+                        var allUser = {{ name60| safe}};
+                    var userScore = {{ score60| safe }};
+                    var buildTable = '';
+
+                    for (var i = 0; i < allUser.length; i++) {
+                        buildTable += '<tr>';
+                        buildTable += '<td style="color:black">' + (i + 1) + "." + "</td>"
+                        buildTable += '<td style="color:black">' + allUser[i] + '</td>'
+                        buildTable += '<td style="color:black">' + userScore[i] + '</td>'
+                    }
+                    document.getElementById('body').innerHTML = buildTable
+                    document.getElementById('60').style.backgroundColor = "green"
+
+
+                    
+
+                    }
+                    else if (time == "90") {
+                        var allUser = {{ name90| safe}};
+                    var userScore = {{ score90| safe }};
+                    var buildTable = '';
+
+                    for (var i = 0; i < allUser.length; i++) {
+                        buildTable += '<tr>';
+                        buildTable += '<td style="color:black">' + (i + 1) + "." + "</td>"
+                        buildTable += '<td style="color:black">' + allUser[i] + '</td>'
+                        buildTable += '<td style="color:black">' + userScore[i] + '</td>'
+                    }
+                    document.getElementById('body').innerHTML = buildTable
+                    document.getElementById('90').style.backgroundColor = "green"
+
+
+
+                    }
+
+                    function change_time(id) {
+                        time = id
+                        if (id == "45") {
+                            allUser = {{ name45 | safe }}
+                            userScore = {{ score45 | safe }}
+                            buildTable = ''
+                            for (var i = 0; i < allUser.length; i++) {
+                            buildTable += '<tr>';
+                            buildTable += '<td style="color:black">' + (i + 1) + "." + "</td>"
+                            buildTable += '<td style="color:black">' + allUser[i] + '</td>'
+                            buildTable += '<td style="color:black">' + userScore[i] + '</td>'
+                            }
+                            document.getElementById('body').innerHTML = buildTable
+                            
+                            document.getElementById('45').style.backgroundColor = "green"
+                            document.getElementById('60').style.backgroundColor = "whitesmoke"
+                            document.getElementById('90').style.backgroundColor = "whitesmoke"
+                          
+
+                        }
+                        else if ( id =="60"){
+                            allUser = {{ name60 | safe }}
+                            userScore = {{ score60 | safe }}
+                            buildTable = ''
+                            for (var i = 0; i < allUser.length; i++) {
+                            buildTable += '<tr>';
+                            buildTable += '<td style="color:black">' + (i + 1) + "." + "</td>"
+                            buildTable += '<td style="color:black">' + allUser[i] + '</td>'
+                            buildTable += '<td style="color:black">' + userScore[i] + '</td>'
+                            }
+                            document.getElementById('body').innerHTML = buildTable
+                            document.getElementById('60').style.backgroundColor = "green"
+                            document.getElementById('45').style.backgroundColor = "whitesmoke"
+                            document.getElementById('90').style.backgroundColor = "whitesmoke"
+                        }
+                        else if (id == "90"){
+                            allUser = {{ name90 | safe }}
+                            userScore = {{ score90 | safe }}
+                            buildTable = ''
+                            for (var i = 0; i < allUser.length; i++) {
+                            buildTable += '<tr>';
+                            buildTable += '<td style="color:black">' + (i + 1) + "." + "</td>"
+                            buildTable += '<td style="color:black">' + allUser[i] + '</td>'
+                            buildTable += '<td style="color:black">' + userScore[i] + '</td>'
+                            }
+                            document.getElementById('body').innerHTML = buildTable
+                            document.getElementById('90').style.backgroundColor = "green"
+                            document.getElementById('45').style.backgroundColor = "whitesmoke"
+                            document.getElementById('60').style.backgroundColor = "whitesmoke"
+
+
+
+                        }
+                    }
+                </script>
+
+            </table>
+        </div>
+        <div class="menu-button">
+            <div id="menu">
+                <button type="button" class="button">Menu</button>
+            </div>
+            <div id="play-again">
+                <a><button type="button" class="button play-again">Play again</button></a>
+            </div>
+        </div>
     </div>
-    </br>
-    <div class="wrapper">
-        <button class="btn btn-primary">Menu</button>
     </div>
-
-
-
-
-
 
 </body>
+<script>
+
+</script>
+
+
 
 </html>
