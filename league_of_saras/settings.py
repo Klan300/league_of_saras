@@ -35,11 +35,11 @@ ALLOWED_HOSTS = ['leagueofsaras.herokuapp.com', '*' ]
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'Cardgame',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Cardgame',
     'social_django',
 ]
 
