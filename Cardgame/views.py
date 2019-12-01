@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 from django.http import HttpResponse, Http404
-=======
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
->>>>>>> pair-page
 from django.shortcuts import render ,redirect
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
@@ -75,14 +72,7 @@ def scoreboard(request,name,time):
     
     context = { 'player_score' : player_score }
 
-<<<<<<< HEAD
-
-
-def scoreboard(request):
-    return render(request, 'Cardgame/scoreboard.html') 
-=======
     return render(request, 'Cardgame/scoreboard.html' , context) 
->>>>>>> pair-page
 
 
 @login_required(login_url='/')
