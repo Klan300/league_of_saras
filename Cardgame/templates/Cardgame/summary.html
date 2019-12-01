@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Summary</title>
+</head>
+{% load static %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'css/summary.css'%}">
+<link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="summary-container">
+    <div class="header">
+      <div class="topic">
+      <h1>Result "{{topic.deck_name}}"</h1>
+    </div>
+      <div id="score">
+        </div>
+    </div>
+    
+    <div id="summary_table" class="summary-table">
+      <table id='table' class="tableBodyScroll">
+        <thead>
+          <th id="no">Card no.</th>
+          <th id="vocab">Vocabulary</th>
+          <th id="status">Status</th>
+        </thead>
+        <script>
+          var name;
+          var allCard = {{ cards| safe}}
+          var total_card = {{ topic.card_set.count }};
+          let history = JSON.parse(localStorage['result'])
+          var score = 0;
+          var count = 0;
+          if (history.length < total_card){
+            for( var a=history.length; a<total_card;a++){
+              history.push('0')
+            }
+          }
+          for (var c=0; c<history.length;c++){
+            if(history[c]=='1'){
+              score += 1;
+            }
+          }
+          document.getElementById('score').innerHTML="<h3>Score: "+score+"</h3>"
+          var buildTable = '<tbody>';
+          
+          for (var i = 0; i < total_card; i++) {
+            buildTable += '<tr>';
+            buildTable += '<td style="color:black">' + (i + 1) + "." + "</td>"
+            buildTable += '<td style="color:black">' + allCard[i] + '</td>'
+            if (history[i] == "1") {
+              buildTable += '<td style="color:green">&#10004</td>'
+            }
+            else if (history[i] == "0") {
+              buildTable += '<td style="color:red">&#10008</td>'
+            }
+          }
+          time = JSON.parse(localStorage['timer']);
+          document.getElementById('table').innerHTML += buildTable + "</tbody>";
+        </script>
+
+      </table>
+    </div>
+    <div class="menu-button">
+      <div id = "menu">
+        <button type="button" class="button">Menu</button>
+      </div>
+      <div id="play-again">
+          <a href="/scoreboard/{{name}}/{{time}}"><button type="button" class="button play-again">Scoreboard</button></a>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+
+</html>

@@ -12,11 +12,68 @@ body{
   background-color: #536d82;
 }
 
+.header {
+  padding-top: 20px;
+}
+
+.user {
+  color: white;
+  position: absolute;
+  top: 35px;
+  left: 35px;
+}
+
+.log{
+  margin-bottom: 15px;
+}
+
+.login-basic  {
+  background-color: #536d82;
+  border-color: #536d82;
+}
+
+.login-basic:hover {
+  background-color: #3f5363;
+  border-color: #3f5363;
+}
+
+
+.signin {
+  border-radius: 20px;
+  margin: 3px;
+  font-size: 12px;
+}
+
+.facebook-signin {
+background-color: #4e72a8;
+color: #ffffff;
+font-size: 12px;
+}
+
+.facebook-signin:hover {
+background-color:  #3d5881;
+color: #ffffff;
+}
+
+.facebook {
+width: auto;
+height: 20px;
+margin-right: 10px;
+}
+
+
+.google{
+  width: auto;
+  height: 20px;
+  margin-right: 10px;
+}
+
+
 .severalbox{
-  padding-top: 5%;
+  padding-top: 3%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: center;
 }
 
 .first-col {
@@ -33,6 +90,28 @@ body{
 
 .first-col:hover {
   background-color: rgb(179, 114, 79);
+}
+
+.mute-col {
+  width : 20%;
+  height: 200px;
+  margin:  2%;
+  border: 5px solid rgb(90,90, 90);
+  border-radius: 25px;
+  background-color: rgb(87, 55, 39);
+  display: flex;
+  justify-content: center;  
+  
+}
+
+.mute {
+  background-color: transparent;
+  font-size: xx-large;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  width: 100%;
+  color: rgb(100, 100, 100);
 }
 
 
@@ -70,7 +149,7 @@ body{
     border: none;
     cursor: pointer;
     opacity: 0.8;
-    width: 150px;
+    width: 100%;
   }
 
   .modal {
@@ -109,7 +188,7 @@ body{
   }
   
   /* Set a style for the submit/login button */
-  .form-container .btn {
+  .form-container .bt {
     background-color: #374b5e;
     color: white;
     font-weight: bolder;
@@ -117,11 +196,14 @@ body{
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    width: 40%;
+    width: 35%;
     margin-bottom:10px;
     opacity: 0.8;
     font-size: 20px;
+    text-align: center;
+    text-decoration: none;
   }
+
   
   /* Add a red background color to the cancel button */
 
@@ -133,7 +215,7 @@ body{
 
   
   /* Add some hover effects to buttons */
-  .form-container .btn:hover, .open-button:hover {
+  .form-container .bt:hover, .open-button:hover {
     opacity: 1;
   }
 
@@ -170,3 +252,7 @@ body{
     transform: rotate(-45deg);
     transition: all .3s ease-in;
   }
+
+
+
+
