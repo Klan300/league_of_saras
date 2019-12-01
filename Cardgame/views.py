@@ -1,3 +1,4 @@
+from django.http import HttpResponse, Http404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import render ,redirect
@@ -38,11 +39,15 @@ def setting(request,name):
 
 @login_required(login_url='/')
 def playing(request,name):
-    topic = Deck.objects.get(deck_name=name)
-    total_card = list(topic.card_set.all())
-    card_name = [i.card_name for i in total_card]
-    print(card_name)
-    return render(request,'Cardgame/playing.html',{'topic':topic,'cards':card_name})
+    try:
+        topic = Deck.objects.get(deck_name=name)
+        total_card = list(topic.card_set.all())
+        card_name = [i.card_name for i in total_card]
+
+        return render(request,'Cardgame/playing.html',{'topic':topic,'cards':card_name},)
+
+    except :
+        return render(request,'Cardgame/404.html')
 
 
 @login_required(login_url='/')
