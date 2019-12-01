@@ -47,13 +47,19 @@
           <a href="{% url "social:begin" "google-oauth2" %}" class="btn btn-light signin"><img src="{{ google }}"
               class="google" alt="My image">Sign in with Google</a><br style="margin: 10px;">
           <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-light signin facebook-signin"><img
-              src="{{ facebook }}" class="facebook" alt="My image">Login with Facebook</a>
+              src="{{ facebook }}" class="facebook" alt="My image">Sign in with Facebook</a>
           {% endif %}
         </div>
       </div>
+      {% if user.is_authenticated %}
+      <div class="start">
+        <a class="btn btn-primary start-btn" id="log" href="{% url "home" %}" role="button">let's play</a>
+      </div>
+      {% else %}
       <div class="start">
         <button class="btn btn-primary start-btn" id="btn" type="submit">let's start</button>
       </div>
+      {% endif %}
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

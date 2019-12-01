@@ -1,6 +1,6 @@
 * {
     font-family: 'Varela Round', sans-serif;
-    color: #072525;
+    color: rgb(255, 255, 255);
    
 }
 body{
@@ -10,13 +10,10 @@ body{
 .header {
     padding: 60px;
     text-align: center;
-    color: white;
     /* background-color: #374b5e; */
 }
 
-h2 {
-    color: white;
-}
+
 
 .flex-container {
     display: flex;
@@ -52,9 +49,16 @@ h2 {
     /* align-items: center; */
 }
 
-.footer {
+.footer{
+    margin-top: 80px;
+    display:flex;
+    justify-content: center;
+}
+.bottom {
+    display: flex;
     text-align: center;
-    padding: 6%;
+    justify-content: space-around;
+    width: 500px;
     /* background-color: #374b5e; */
 }
 
@@ -124,3 +128,13 @@ input:checked + .slider:before {
 .button-down {
     margin: 10px;
 }
+
+.continue_button{
+
+}
+
+#play, #menu{
+    width: 150px;
+    height: 60px;
+    border: 2px solid wheat;
+    }
