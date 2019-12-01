@@ -49,6 +49,7 @@
 
                     timer = JSON.parse(localStorage['timer']);
                     time = timer
+                    active_color = "#6EC2EE"
                     if (time == "45") {
                         var allUser = {{ name45| safe}};
                         var userScore = {{ score45| safe }};
@@ -61,7 +62,7 @@
                         buildTable += '<td style="color:black">' + userScore[i] + '</td>'
                     }
                     document.getElementById('body').innerHTML = buildTable;
-                    document.getElementById('45').style.backgroundColor = "green"
+                    document.getElementById('45').style.backgroundColor = active_color
 
 
 
@@ -78,7 +79,7 @@
                         buildTable += '<td style="color:black">' + userScore[i] + '</td>'
                     }
                     document.getElementById('body').innerHTML = buildTable
-                    document.getElementById('60').style.backgroundColor = "green"
+                    document.getElementById('60').style.backgroundColor = active_color
 
 
                     
@@ -96,7 +97,7 @@
                         buildTable += '<td style="color:black">' + userScore[i] + '</td>'
                     }
                     document.getElementById('body').innerHTML = buildTable
-                    document.getElementById('90').style.backgroundColor = "green"
+                    document.getElementById('90').style.backgroundColor = active_color
 
 
 
@@ -116,7 +117,7 @@
                             }
                             document.getElementById('body').innerHTML = buildTable
                             
-                            document.getElementById('45').style.backgroundColor = "green"
+                            document.getElementById('45').style.backgroundColor = active_color
                             document.getElementById('60').style.backgroundColor = "whitesmoke"
                             document.getElementById('90').style.backgroundColor = "whitesmoke"
                           
@@ -133,7 +134,7 @@
                             buildTable += '<td style="color:black">' + userScore[i] + '</td>'
                             }
                             document.getElementById('body').innerHTML = buildTable
-                            document.getElementById('60').style.backgroundColor = "green"
+                            document.getElementById('60').style.backgroundColor = active_color
                             document.getElementById('45').style.backgroundColor = "whitesmoke"
                             document.getElementById('90').style.backgroundColor = "whitesmoke"
                         }
@@ -148,7 +149,7 @@
                             buildTable += '<td style="color:black">' + userScore[i] + '</td>'
                             }
                             document.getElementById('body').innerHTML = buildTable
-                            document.getElementById('90').style.backgroundColor = "green"
+                            document.getElementById('90').style.backgroundColor = active_color
                             document.getElementById('45').style.backgroundColor = "whitesmoke"
                             document.getElementById('60').style.backgroundColor = "whitesmoke"
 
