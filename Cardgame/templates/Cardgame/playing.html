@@ -5,6 +5,10 @@
     <title>play</title>
 </head>
 {% load static %}
+{% static "sound/playingshort.mp3" as soundtrack %}
+{% static "sound/correct.wav" as correct %}
+{% static "sound/wrong.wav" as wrong %}
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -16,12 +20,21 @@
 </head>
 
 <body>
+    <audio id = "music1"  >
+        <source src="{{soundtrack}}" type = "audio/mpeg">
+    </audio>
+    <audio id ="correct">
+        <source src="{{correct}}">
+    </audio>
+    <audio id ="wrong">
+        <source src="{{wrong}}">
+    </audio>
     <div class="play-container">
         <div>
             <h1>{{topic.deck_name}}</h1>
         </div>
         <div class="time" id="countdown"></div>
-        <br />
+        <br/>
         <div class="score">
             <h6>Score: <span id="score">0</span></h6>
         </div>
@@ -33,22 +46,22 @@
         <div class="button" id="button">
             <div class="correct">
                 <button type="button" id="pass" style="border-radius: 20px;" class="btn btn-danger"
-                    onclick="change_word(id),change_bg(id)">
+                    onclick="change_word(id),change_bg(id),play(id)">
                     <font size=5>Pass</font>
                 </button>
             </div>
             <div class="pass">
                 <button type="button" style="border-radius: 20px;" id="correct" class="btn btn-success"
-                    onclick="change_word(id),change_bg(id)">
+                    onclick="change_word(id),change_bg(id),play(id)">
                     <font size=5>Correct</font>
                 </button>
             </div>
         </div>
         <div class="finish">
-         <form action="{% url 'save' topic %}" id="end" method="post">
-            {% csrf_token %}
-            <input type="hidden" id="user" name="user" value="{{user}}">
-        <form>
+            <form action="{% url 'save' topic %}" id="end" method="post">
+                {% csrf_token %}
+                <input type="hidden" id="user" name="user" value="{{user}}">
+                <form>
         </div>
     </div>
 </body>
@@ -83,13 +96,13 @@
     }
 
     timer = JSON.parse(localStorage['timer']);
-    if (timer=="45"){
-        timeleft=45
+    if (timer == "45") {
+        timeleft = 45
     }
-    else if (timer=="60"){
+    else if (timer == "60") {
         timeleft = 60
     }
-    else if (timer=="90"){
+    else if (timer == "90") {
         timeleft = 90
     }
     document.getElementById("end").style.display = "none";
@@ -139,6 +152,27 @@
             }, 1000)
         }
     }
+</script>
+
+<script>
+status = JSON.parse(localStorage['sound'])
+
+var sound = document.getElementById("music1")
+var correct = document.getElementById("correct")
+var wrong = document.getElementById("wrong")
+sound.loop = true
+function play(button){
+    if (status=="on"){
+            sound.play()
+            if (button=="correct"){
+                correct.play()
+            }
+            else if(button=="pass"){
+                wrong.play()
+            }
+
+    }
+}
 </script>
 
 </html>
