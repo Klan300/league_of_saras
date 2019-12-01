@@ -27,13 +27,13 @@
         <h3>Time Duration</h3>
       </div>
       <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label id="45s" class="btn btn-primary" onclick="get_time(id)">
+        <label id="45" class="btn btn-primary" onclick="get_time(id)">
           <input type="radio" name="options" id="option1" autocomplete="off"> 45s
         </label>
-        <label id="60s" class="btn btn-primary active" onclick="get_time(id)">
+        <label id="60" class="btn btn-primary active" onclick="get_time(id)">
           <input type="radio" name="options" id="option2" autocomplete="off" checked> 60s
         </label>
-        <label id="90s" class="btn btn-primary" onclick="get_time(id)">
+        <label id="90" class="btn btn-primary" onclick="get_time(id)">
           <input type="radio" name="options" id="option3" autocomplete="off"> 90s
         </label>
       </div>
@@ -66,6 +66,7 @@
     var interval="60"
     localStorage.setItem('timer', JSON.stringify(interval));
     function get_time(time){
+<<<<<<< HEAD
       if(time =="45s"){
         interval="45"
         localStorage.setItem('timer', JSON.stringify(interval));
@@ -75,6 +76,17 @@
         localStorage.setItem('timer', JSON.stringify(interval));
       }
       else if(time == "90s"){
+=======
+      if(time =="45"){
+        interval="45"
+        localStorage.setItem('timer', JSON.stringify(interval));
+      }
+      else if(time == "60"){
+        interval="60"
+        localStorage.setItem('timer', JSON.stringify(interval));
+      }
+      else if(time == "90"){
+>>>>>>> pair-page
         interval="90"
         localStorage.setItem('timer', JSON.stringify(interval));
       }
