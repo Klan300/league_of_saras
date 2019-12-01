@@ -1,1 +1,0 @@
-web: gunicorn leagueofsaras.wsgi
