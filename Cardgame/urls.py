@@ -1,7 +1,6 @@
 from django.urls import path
 from . import views
-from Cardgame import views as myapp_views
-from django.conf.urls import handler404, handler500
+from django.conf.urls import handler404
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -14,4 +13,4 @@ urlpatterns = [
     path('save/<str:name>',views.save_score,name='save')
 ]
 
-handler404 = myapp_views.error_404
+handler404 = views.error_404

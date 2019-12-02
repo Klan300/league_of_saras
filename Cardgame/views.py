@@ -10,11 +10,6 @@ from django.contrib import messages
 from django.contrib.messages import get_messages,add_message
 
 
-def error_404(request, exception):
-        data = {}
-        return render(request,'Cardgame/404.html', data)
-
-
 
 
 def index(request):
@@ -106,3 +101,8 @@ def save_score(request,name):
     player.save()
     messages.add_message(request,  messages.INFO, time )
     return HttpResponseRedirect(f'/playing/{name}/summary')
+
+
+def error_404(request,exception):
+        data = {}
+        return render(request,'Cardgame/404.html',data)
