@@ -15,4 +15,3 @@ class DeckAdmin(admin.ModelAdmin):
     list_display = ('deck_name','number_of_card')
 
 admin.site.register(Deck, DeckAdmin)
-admin.site.register(Playerscore)
