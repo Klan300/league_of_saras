@@ -10,6 +10,10 @@ from django.contrib import messages
 from django.contrib.messages import get_messages,add_message
 
 
+def error_404(request, exception):
+        data = {}
+        return render(request,'Cardgame/404.html', data)
+
 
 
 
@@ -39,17 +43,15 @@ def setting(request,name):
 
 @login_required(login_url='/')
 def playing(request,name):
-    try:
-        from random import shuffle
-        topic = Deck.objects.get(deck_name=name)
-        total_card = list(topic.card_set.all())
-        card_name = [i.card_name for i in total_card]
-        shuffle(card_name)
+    from random import shuffle
+    topic = Deck.objects.get(deck_name=name)
+    total_card = list(topic.card_set.all())
+    card_name = [i.card_name for i in total_card]
+    shuffle(card_name)
 
-        return render(request,'Cardgame/playing.html',{'topic':topic,'cards':card_name},)
+    return render(request,'Cardgame/playing.html',{'topic':topic,'cards':card_name},)
 
-    except :
-        return render(request,'Cardgame/404.html')
+    
 
 
 @login_required(login_url='/')
