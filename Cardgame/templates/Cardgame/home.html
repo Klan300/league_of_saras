@@ -84,11 +84,12 @@
         {%endif%}
         {% endfor %}
     </div>
-
-
+    <script>
+        var init_sound = "off"
+        localStorage.setItem('sound', JSON.stringify(init_sound));
+    </script>
     <script src="{% static 'js/home.js'%}"></script>
-
-
 </body>
+
 
 </html>

@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.conf.urls import handler404
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -11,3 +12,5 @@ urlpatterns = [
     path('scoreboard/<str:name>/<int:time>', views.scoreboard, name='scoreboard'),
     path('save/<str:name>',views.save_score,name='save')
 ]
+
+handler404 = views.error_404

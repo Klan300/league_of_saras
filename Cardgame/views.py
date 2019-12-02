@@ -12,7 +12,6 @@ from django.contrib.messages import get_messages,add_message
 
 
 
-
 def index(request):
     return render(request, 'Cardgame/index.html')
 
@@ -39,15 +38,15 @@ def setting(request,name):
 
 @login_required(login_url='/')
 def playing(request,name):
-    try:
-        topic = Deck.objects.get(deck_name=name)
-        total_card = list(topic.card_set.all())
-        card_name = [i.card_name for i in total_card]
+    from random import shuffle
+    topic = Deck.objects.get(deck_name=name)
+    total_card = list(topic.card_set.all())
+    card_name = [i.card_name for i in total_card]
+    shuffle(card_name)
 
-        return render(request,'Cardgame/playing.html',{'topic':topic,'cards':card_name},)
+    return render(request,'Cardgame/playing.html',{'topic':topic,'cards':card_name},)
 
-    except :
-        return render(request,'Cardgame/404.html')
+    
 
 
 @login_required(login_url='/')
@@ -66,12 +65,28 @@ def summary(request,name):
 @login_required(login_url='/')
 def scoreboard(request,name,time):
     topic = Deck.objects.get(deck_name=name)
-    player_score = Playerscore.objects.filter( deck = topic).filter(time = time).order_by('-score')
-    for player in player_score:
-        print(f'{player.deck.deck_name}    {player.time} {player.score} {player.user.username}')
-    
-    context = { 'player_score' : player_score }
-
+    player_score_45 = Playerscore.objects.filter( deck = topic).filter(time = 45).order_by('-score')
+    name_45 = []
+    score_45 = []
+    player_score_60 = Playerscore.objects.filter(deck = topic).filter(time = 60).order_by('-score')
+    name_60 = []
+    score_60 = []
+    player_score_90 = Playerscore.objects.filter(deck = topic).filter(time = 90).order_by('-score')
+    name_90 = []
+    score_90 = []
+    for player in player_score_45:
+        name_45.append(player.user.username)
+        score_45.append(str(player.score))
+    for player in player_score_60:
+        name_60.append(player.user.username)
+        score_60.append(str(player.score))    
+    for player in player_score_90:
+        name_90.append(player.user.username)
+        score_90.append(str(player.score))    
+    context = { 'score45' : score_45 ,'name45':name_45,'score60':score_60,
+    'name60':name_60,'score90':score_90,'name90':name_90,'topic':topic}
+    print(name_45)
+    print(score_45)
     return render(request, 'Cardgame/scoreboard.html' , context) 
 
 
@@ -86,3 +101,8 @@ def save_score(request,name):
     player.save()
     messages.add_message(request,  messages.INFO, time )
     return HttpResponseRedirect(f'/playing/{name}/summary')
+
+
+def error_404(request,exception):
+        data = {}
+        return render(request,'Cardgame/404.html',data)

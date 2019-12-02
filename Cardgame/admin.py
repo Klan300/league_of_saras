@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Deck,Card
+from .models import Deck,Card,Playerscore
 
 
 class CardInline(admin.StackedInline):
