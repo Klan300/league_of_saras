@@ -40,9 +40,11 @@ def setting(request,name):
 @login_required(login_url='/')
 def playing(request,name):
     try:
+        from random import shuffle
         topic = Deck.objects.get(deck_name=name)
         total_card = list(topic.card_set.all())
         card_name = [i.card_name for i in total_card]
+        shuffle(card_name)
 
         return render(request,'Cardgame/playing.html',{'topic':topic,'cards':card_name},)
 
