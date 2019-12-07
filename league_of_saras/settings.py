@@ -156,3 +156,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
 # location where django collect all static files
 
+django_heroku.settings(locals())
