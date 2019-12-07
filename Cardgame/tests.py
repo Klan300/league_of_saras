@@ -27,6 +27,8 @@ class TestListPage(StaticLiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Chrome('Cardgame/chromedriver/chromedriver.exe')
+        self.deck1 = Deck.objects.create(deck_name='English')
+        self.deck2 = Deck.objects.create(deck_name='Science')
     
     def tearDown(self):
         self.browser.close()
@@ -56,3 +58,11 @@ class TestListPage(StaticLiveServerTestCase):
         self.browser.find_element_by_partial_link_text('Google').click()
         url = urlparse(self.browser.current_url)
         self.assertEquals(url.netloc, 'accounts.google.com')
+
+    def test_playing_page_redirect_to_setting_page(self):
+        self.browser.get(self.live_server_url + reverse('home'))
+        sleep(1)
+        self.browser.find_element_by_class_name('open-button').click()
+        sleep(1)
+        self.browser.find_element_by_class_name('modal').click()
+        # self.assertEquals(self.live_server_url, self.)
