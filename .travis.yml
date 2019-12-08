@@ -12,7 +12,7 @@ branches:
 
  # Install dependencies
 install:
-  -pip install codecov 
+  - pip install codecov 
   - pip install -r requirements.txt
     
  # script to run tests. Script can have many commands, one per line.
