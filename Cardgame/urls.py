@@ -3,7 +3,7 @@ from . import views
 from django.conf.urls import handler404
 
 urlpatterns = [
-    path('/', views.index, name='index'),
+    path('', views.index, name='index'),
     path('playing/<str:name>', views.playing, name='playing'),
     path('logout/',views.views_logout, name='logout'),
     path('home/', views.home, name='home'),
