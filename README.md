@@ -1,7 +1,7 @@
 # league of saras
 
 [![Build Status](https://travis-ci.com/Klan300/league_of_saras.svg?branch=master)](https://travis-ci.com/Klan300/league_of_saras)
-![codecov](https://codecov.io/gh/Klan300/league_of_saras/branch/master/graph/badge.svg)](https://codecov.io/gh/Klan300/league_of_saras)
+[![codecov](https://codecov.io/gh/Klan300/league_of_saras/branch/master/graph/badge.svg)](https://codecov.io/gh/Klan300/league_of_saras)
 
 ## Description
 League of Saras is a web-based game that lets players guess a word. This game contains many types of educational words organized by school subject. The game is played by two or more people; one player tries to guess the word, while others try to give hint without saying that word. The goal of this game is to let children have fun and gain more knowledge by the card game with their friends.
