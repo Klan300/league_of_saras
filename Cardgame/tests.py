@@ -65,4 +65,4 @@ class TestListPage(StaticLiveServerTestCase):
         self.browser.find_element_by_class_name('open-button').click()
         sleep(1)
         self.browser.find_element_by_class_name('modal').click()
-        # self.assertEquals(self.live_server_url, self.)
+        self.assertEquals(self.browser.current_url, self.live_server_url+reverse('home'))
