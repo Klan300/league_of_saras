@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 from decouple import config
-import django_heroku
 
 # Build paths insid py e the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -146,12 +145,16 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_URL = '/static/'
-# location where django collect all static files
-
-django_heroku.settings(locals())
+if 'HEROKU' in os.environ:
+    # Configure Django App for Heroku.
+    import django_heroku
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATIC_URL = '/static/'
+    django_heroku.settings(locals())
+else:
+    STATIC_ROOT = 'static'
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = (
+    BASE_DIR + '/Cardgame/static/' ,
+)
