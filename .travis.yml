@@ -17,7 +17,7 @@ install:
     
  # script to run tests. Script can have many commands, one per line.
 script: 
-  - coverage run tests.py
+  - coverage run manage.py test Cardgame
 
 after_success:
   - codecov

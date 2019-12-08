@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from models import Deck, Card, Playerscore
+from .models import Deck, Card, Playerscore
 
 class DeckModelTest(TestCase):
     def setUp(self):
