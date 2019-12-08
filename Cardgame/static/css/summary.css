@@ -8,7 +8,7 @@ body {
   background-color: #536d82;
 }
 
-.scoreboard-container {
+.summary-container {
   margin: 50px;
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@ body {
 }
 
 .header {
-  height: 80px;
+  height: 120px;
   width: 504px;
   background-color: #D98824;
   border-top: 2px solid white;
@@ -29,17 +29,6 @@ body {
 
 .topic {
   margin-top: 15px;
-}
-
-.time-button {
-  height: 100px;
-  padding-top: 20px;
-  background-color: #D39951;
-  display: flex;
-  width: 504px;
-  justify-content: space-around;
-  border: 2px solid white;
-
 }
 
 table {
@@ -58,7 +47,6 @@ tbody tr {
   display: table;
   width: 500px;
   table-layout: fixed;
-
 }
 
 table {
