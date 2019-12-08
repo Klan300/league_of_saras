@@ -58,12 +58,3 @@ class TestListPage(StaticLiveServerTestCase):
         self.browser.find_element_by_partial_link_text('Google').click()
         url = urlparse(self.browser.current_url)
         self.assertEquals(url.netloc, 'accounts.google.com')
-
-    def test_playing_page_redirect_to_setting_page(self):
-        self.browser.get(self.live_server_url + reverse('home'))
-        sleep(1)
-        self.browser.find_element_by_class_name('open-button').click()
-        sleep(1)
-        self.browser.find_element_by_class_name('modal').click()
-        id = self.deck1.objects.get(id)
-        self.assertEquals(self.browser.current_url, self.live_server_url+reverse('home')+reverse(id))
