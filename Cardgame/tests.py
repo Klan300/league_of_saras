@@ -26,7 +26,7 @@ class DeckModelTest(TestCase):
 class TestListPage(StaticLiveServerTestCase):
 
     def setUp(self):
-        self.browser = webdriver.Chrome('Cardgame/chromedriver/chromedriver.exe')
+        self.browser = webdriver.Firefox()
         self.deck1 = Deck.objects.create(deck_name='English')
         self.deck2 = Deck.objects.create(deck_name='Science')
     
