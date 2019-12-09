@@ -1,5 +1,6 @@
 from django.test import TestCase
 from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.urls import reverse
 from time import sleep
@@ -26,7 +27,9 @@ class DeckModelTest(TestCase):
 class TestListPage(StaticLiveServerTestCase):
 
     def setUp(self):
-        self.browser = webdriver.Firefox()
+        options = Options()
+        options.headless = True
+        self.browser = webdriver.Firefox(options=options)
         self.deck1 = Deck.objects.create(deck_name='English')
         self.deck2 = Deck.objects.create(deck_name='Science')
     
