@@ -16,7 +16,6 @@ from decouple import config
 # Build paths insid py e the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -25,8 +24,8 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
-
-ALLOWED_HOSTS = ['*']
+# DEBUG = False
+ALLOWED_HOSTS = ['leagueofsaras.herokuapp.com', '*' ]
 
 
 # Application definition
@@ -34,16 +33,17 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'Cardgame',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Cardgame',
     'social_django',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -66,6 +66,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect'
             ],
         },
 
@@ -89,10 +91,9 @@ WSGI_APPLICATION = 'league_of_saras.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': config('DB_NAME'),
-    }
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 }
-
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -114,14 +115,23 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 LOGIN_URL = '/auth/login/google-oauth2/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/home'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = '/'
-SECRET_KEY = 'd%$eo0homjyjzg*)gh0)1m09)1ds7xe3$v8k*t0c-_vk7ydl8-'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '533011072786-ii1mt1u0h2bif5q7744hipo419ap1925.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'wbtWrbSIBn2t-RrPgBdr2XHt'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET =  config('GOOGLE_SECRET')
 SOCIAL_AUTH_FACEBOOK_KEY =   '2939352306078457'    # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = '34efdbfc31f06a6eba2a3a816ab86c3f'
+SOCIAL_AUTH_FACEBOOK_SECRET = config('FACEBOOK_SECRET')
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link'] # add this
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {       # add this
+      'fields': 'id, name, email, picture.type(large), link'
+    }
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [                 # add this
+        ('name', 'name'),
+        ('email', 'email'),
+        ('picture', 'picture'),
+        ('link', 'profile_url'),
+]
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
@@ -135,8 +145,16 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
-
-STATIC_URL = '/static/'
+if 'HEROKU' in os.environ:
+    # Configure Django App for Heroku.
+    import django_heroku
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    STATIC_URL = '/static/'
+    django_heroku.settings(locals())
+else:
+    STATIC_ROOT = 'static'
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = (
+    BASE_DIR + '/Cardgame/static/' ,
+)
