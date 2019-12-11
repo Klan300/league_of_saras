@@ -23,6 +23,13 @@ class DeckModelTest(TestCase):
         english = Card.objects.get(deck=self.deck1)
         self.assertEqual(english.deck, self.deck1)
 
+    def test_deck_name(self):
+        self.assertEqual(str(self.deck1), 'English')
+        self.assertEqual(str(self.deck2), 'Science')
+    
+    def test_card_name(self):
+        self.assertEqual(str(self.card1), 'What is the alphabet?')
+
 
 class TestListPage(StaticLiveServerTestCase):
 
