@@ -11,7 +11,6 @@ from django.contrib.messages import get_messages,add_message
 
 
 
-
 def index(request):
     return render(request, 'Cardgame/index.html')
 
@@ -38,6 +37,10 @@ def setting(request,name):
 
 @login_required(login_url='/')
 def playing(request,name):
+    try:
+        refer = request.META['HTTP_REFERER']
+    except KeyError:
+        return redirect(home)
     from random import shuffle
     topic = Deck.objects.get(deck_name=name)
     total_card = list(topic.card_set.all())
@@ -51,6 +54,10 @@ def playing(request,name):
 
 @login_required(login_url='/')
 def summary(request,name):
+    try:
+        refer = request.META['HTTP_REFERER']
+    except KeyError:
+        return redirect(home)
     topic = Deck.objects.get(deck_name=name)
     total_card = list(topic.card_set.all())
     card_name = [i.card_name for i in total_card]
@@ -64,6 +71,10 @@ def summary(request,name):
 
 @login_required(login_url='/')
 def scoreboard(request,name,time):
+    try:
+        refer = request.META['HTTP_REFERER']
+    except KeyError:
+        return redirect(home)
     topic = Deck.objects.get(deck_name=name)
     player_score_45 = Playerscore.objects.filter( deck = topic).filter(time = 45).order_by('-score')
     name_45 = []
@@ -92,7 +103,10 @@ def scoreboard(request,name,time):
 
 @login_required(login_url='/')
 def save_score(request,name):
-    print(request)
+    try:
+        refer = request.META['HTTP_REFERER']
+    except KeyError:
+        return redirect(home)
     score = int(request.POST['score'])
     time = int(request.POST['time'][:2])
     user = User.objects.get(username = request.POST['user'])
@@ -101,7 +115,6 @@ def save_score(request,name):
     player.save()
     messages.add_message(request,  messages.INFO, time )
     return HttpResponseRedirect(f'/playing/{name}/summary')
-
 
 def error_404(request,exception):
         data = {}
