@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="{{index}}">
 </head>
 <body>
+    <img src="{{ favicon }}"style="display: none;" alt="My image">
   <div class="bg"></div>
   <div class="bg bg2"></div>
   <div class="bg bg3"></div>
@@ -47,8 +48,6 @@
           {% else %}
           <a href="{% url "social:begin" "google-oauth2" %}" class="btn btn-light signin"><img src="{{ google }}"
               class="google" alt="My image">Sign in with Google</a><br style="margin: 10px;">
-          <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-light signin facebook-signin"><img
-              src="{{ facebook }}" class="facebook" alt="My image">Sign in with Facebook</a>
           {% endif %}
         </div>
       </div>

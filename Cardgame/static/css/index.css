@@ -82,30 +82,12 @@ html {
 .signin {
     border-radius: 20px;
     margin: 10px;
-    font-size: 15px;
+    font-size: 20px;
 }
-
-.facebook-signin {
-  background-color: #4e72a8;
-  color: #ffffff;
-  font-size: 14px;
-}
-
-.facebook-signin:hover {
-  background-color:  #3d5881;
-  color: #ffffff;
-}
-
-.facebook {
-  width: auto;
-  height: 25px;
-  margin-right: 10px;
-}
-
 
 .google{
     width: auto;
-    height: 25px;
+    height: 30px;
     margin-right: 10px;
 }
 
@@ -128,7 +110,7 @@ html {
 }
 
 .form {
-  margin-top: 40px;
+  margin-top: 20px;
   display: none;
 }
 
