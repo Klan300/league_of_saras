@@ -1,0 +1,108 @@
+* {
+  font-family: 'Varela Round', sans-serif;
+  color: rgb(255, 255, 255);
+
+}
+
+body {
+  background-color: #536d82;
+}
+
+.scoreboard-container {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.header {
+  height: 120px;
+  width: 504px;
+  background-color: #D98824;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  border-left: 2px solid white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.topic {
+  margin-top: 15px;
+}
+
+.time-button {
+  height: 100px;
+  padding-top: 20px;
+  background-color: #D39951;
+  display: flex;
+  width: 504px;
+  justify-content: space-around;
+  border: 2px solid white;
+
+}
+
+table {
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+}
+
+.tableBodyScroll tbody {
+  display: block;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+.tableBodyScroll thead,
+tbody tr {
+  display: table;
+  width: 500px;
+  table-layout: fixed;
+
+}
+
+table {
+  width: 500px;
+}
+
+th,
+td {
+  height: 50px;
+}
+
+th {
+  color: black;
+}
+
+thead {
+  background-color: orange;
+}
+
+tbody {
+  background-color: white;
+}
+
+.button {
+  width: 130px;
+  height: 60px;
+  background-color: whitesmoke;
+  border-radius: 20px;
+  color: black;
+  font-size: 20px;
+  border: 5px solid wheat;
+}
+
+.button_again {}
+
+.menu-button {
+  height: 100px;
+  padding-top: 20px;
+  background-color: #D98824;
+  display: flex;
+  width: 504px;
+  justify-content: space-around;
+  border: 2px solid white;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+}
