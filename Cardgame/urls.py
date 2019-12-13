@@ -12,5 +12,3 @@ urlpatterns = [
     path('scoreboard/<str:name>/<int:time>', views.scoreboard, name='scoreboard'),
     path('save/<str:name>',views.save_score,name='save')
 ]
-
-handler404 = views.error_404
