@@ -52,14 +52,6 @@ class TestListPage(StaticLiveServerTestCase):
             alert.find_element_by_tag_name('h1').text,
             'league of saras'
         )
-    
-    def test_login_page_redirect_to_login_facebook(self):
-        self.browser.get(self.live_server_url)
-        self.browser.find_element_by_id('btn').click()
-        sleep(1)
-        self.browser.find_element_by_partial_link_text('Facebook').click()
-        url = urlparse(self.browser.current_url)
-        self.assertEquals(url.netloc, 'www.facebook.com')
 
     def test_login_page_redirect_to_login_google(self):
         self.browser.get(self.live_server_url)
