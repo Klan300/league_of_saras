@@ -39,7 +39,7 @@ def setting(request,name):
 def playing(request,name):
     try:
         refer = request.META['HTTP_REFERER']
-    except KeyError:
+    except KeyError or ValueError:
         return redirect(home)
     from random import shuffle
     topic = Deck.objects.get(deck_name=name)
@@ -56,7 +56,7 @@ def playing(request,name):
 def summary(request,name):
     try:
         refer = request.META['HTTP_REFERER']
-    except KeyError:
+    except KeyError or ValueError:
         return redirect(home)
     topic = Deck.objects.get(deck_name=name)
     total_card = list(topic.card_set.all())
@@ -73,7 +73,7 @@ def summary(request,name):
 def scoreboard(request,name,time):
     try:
         refer = request.META['HTTP_REFERER']
-    except KeyError:
+    except KeyError or ValueError:
         return redirect(home)
     topic = Deck.objects.get(deck_name=name)
     player_score_45 = Playerscore.objects.filter( deck = topic).filter(time = 45).order_by('-score')
@@ -105,7 +105,7 @@ def scoreboard(request,name,time):
 def save_score(request,name):
     try:
         refer = request.META['HTTP_REFERER']
-    except KeyError:
+    except KeyError or ValueError:
         return redirect(home)
     score = int(request.POST['score'])
     time = int(request.POST['time'][:2])
@@ -115,7 +115,3 @@ def save_score(request,name):
     player.save()
     messages.add_message(request,  messages.INFO, time )
     return HttpResponseRedirect(f'/playing/{name}/summary')
-
-def error_404(request,exception):
-        data = {}
-        return render(request,'Cardgame/404.html',data)
