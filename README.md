@@ -23,3 +23,26 @@ While playing this game, a player will have a time limit, the game will end when
 - **Task Board**: [Trello](https://trello.com/b/5IZQzFnU/league-of-saras)
 - **Code Review Script and Checklist**: [Google Docs](https://docs.google.com/document/d/1zPOBC1oeVHnR0qHtA764ClV9Aj7-xVub59CRoCc4p6o/edit?usp=sharing)
 - **Sprint Retrospective and Milestones**: [Google Docs](https://docs.google.com/document/d/16zYudrIcDCM-InB-exEYpuzSn05VFGZU2sFMxBeu_Aw/edit?usp=sharing)
+
+## Get started (run locally)
+1. Clone this repository to your local machine and change the directory to `league_of_saras` directory.
+    ```
+    $ git clone https://github.com/Klan300/league_of_saras.git
+    ```
+2. Use virtualenv in the directory by this command.
+    ```
+    $ virtualenv venv
+    ```
+3. Install requirements package.
+    ```
+    (venv) pip install -r requirements.txt
+    ```
+4. Migrate the data to your database.
+    ```
+    (venv) python manage.py migrate
+    ```
+5. Run the server and enjoy the experience.
+    ```
+    (venv) python manage.py runserver
+    ```
+    After runserver, you will see the server run at default URL in your local machine. You can access by that shown URL.
