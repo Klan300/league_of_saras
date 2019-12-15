@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'league_of_saras.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': config('DB_NAME'),
+        'NAME': config('DATABASE_URL'),
     }
 }
 
