@@ -8,18 +8,28 @@ from threading import Event
 from urllib.parse import urlparse
 
 from django.contrib.auth import get_user_model
+from django.core.exceptions import ObjectDoesNotExist
 
 from .models import Deck, Card, Playerscore
+
 
 class DeckModelTest(TestCase):
     
     def setUp(self):
         self.deck1 = Deck.objects.create(deck_name='English')
         self.deck2 = Deck.objects.create(deck_name='Science')
-        self.card1 = Card.objects.create(deck=self.deck1, card_name='What is the alphabet?')
+        self.deck3 = Deck.objects.create(deck_name='Animal')
+        self.deck4 = Deck.objects.create(deck_name='7-11')
+        self.deck5 = Deck.objects.create(deck_name='House')
+        self.card1 = Card.objects.create(deck=self.deck1, card_name='Alphabet')
+        self.card2 = Card.objects.create(deck=self.deck3, card_name='Tiger')
+        self.card2 = Card.objects.create(deck=self.deck3, card_name='Cat')
+        self.card3 = Card.objects.create(deck=self.deck4, card_name='Milk')
+        self.card4 = Card.objects.create(deck=self.deck4, card_name='Milk')
+        self.card5 = Card.objects.create(deck=self.deck4, card_name='Milk')
     
     def test_deck_count(self):
-        self.assertEqual(2, Deck.objects.count())
+        self.assertEqual(5, Deck.objects.count())
 
     def test_card_count(self):
         english = Card.objects.get(deck=self.deck1)
@@ -30,17 +40,34 @@ class DeckModelTest(TestCase):
         self.assertEqual(str(self.deck2), 'Science')
     
     def test_card_name(self):
-        self.assertEqual(str(self.card1), 'What is the alphabet?')
+        self.assertEqual(str(self.card1), 'Alphabet')
+
+    def test_delete_deck(self):
+        Deck.objects.get(deck_name="Animal").delete()
+        self.assertEqual(Deck.objects.count(), 4)
+        with self.assertRaises(ObjectDoesNotExist):
+            Deck.objects.get(deck_name="Animal").delete()
+        with self.assertRaises(ObjectDoesNotExist):
+            Deck.objects.get(deck_name="Wrong").delete()
+    
+    def test_change_question(self):
+        name = Deck(id=1, deck_name='Sport')
+        name.save()
+        self.assertEqual(Deck.objects.get(id=1), name)
+    
+    # def test_change_non_exist_question
 
 
 class TestListPage(StaticLiveServerTestCase):
 
     def setUp(self):
         options = Options()
-        options.headless = True
+        options.headless = False
         self.browser = webdriver.Firefox(options=options)
         self.deck1 = Deck.objects.create(deck_name='English')
         self.deck2 = Deck.objects.create(deck_name='Science')
+        User = get_user_model()
+        self.user = User.objects.create_user(username='normal', email='normal@user.com', password='foo')
     
     def tearDown(self):
         self.browser.close()
@@ -62,7 +89,7 @@ class TestListPage(StaticLiveServerTestCase):
         self.browser.find_element_by_partial_link_text('Google').click()
         url = urlparse(self.browser.current_url)
         self.assertEquals(url.netloc, 'accounts.google.com')
-
+    
 
 class UsersManagersTest(TestCase):
     
