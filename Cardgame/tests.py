@@ -55,14 +55,25 @@ class DeckModelTest(TestCase):
         name.save()
         self.assertEqual(Deck.objects.get(id=1), name)
     
-    # def test_change_non_exist_question
+    def test_add_non_exist_question_by_id(self):
+        name = Deck(id=100, deck_name='Sport')
+        name.save()
+        self.assertEqual(Deck.objects.count(), 6)
+    
+    def test_number_card_with_deck(self):
+        c = Card.objects.filter(deck=1)
+        self.assertEqual(c.count(), 1)
+        c = Card.objects.filter(deck=2)
+        self.assertEqual(c.count(), 0)
+        c = Card.objects.filter(deck=3)
+        self.assertEqual(c.count(), 2)
 
 
 class TestListPage(StaticLiveServerTestCase):
 
     def setUp(self):
         options = Options()
-        options.headless = False
+        options.headless = True
         self.browser = webdriver.Firefox(options=options)
         self.deck1 = Deck.objects.create(deck_name='English')
         self.deck2 = Deck.objects.create(deck_name='Science')
