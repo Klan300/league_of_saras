@@ -120,18 +120,6 @@ LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = '/'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '533011072786-ii1mt1u0h2bif5q7744hipo419ap1925.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET =  config('GOOGLE_SECRET')
-SOCIAL_AUTH_FACEBOOK_KEY =   '2939352306078457'    # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = config('FACEBOOK_SECRET')
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link'] # add this
-SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {       # add this
-      'fields': 'id, name, email, picture.type(large), link'
-    }
-SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [                 # add this
-        ('name', 'name'),
-        ('email', 'email'),
-        ('picture', 'picture'),
-        ('link', 'profile_url'),
-]
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
