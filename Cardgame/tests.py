@@ -1,14 +1,16 @@
-from django.test import TestCase
-from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from django.test import TestCase, Client
 from django.urls import reverse
-from time import sleep
-from threading import Event
+from django.contrib.auth import get_user_model
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from django.core.exceptions import ObjectDoesNotExist
+
 from urllib.parse import urlparse
 
-from django.contrib.auth import get_user_model
-from django.core.exceptions import ObjectDoesNotExist
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
+
+from time import sleep
+from threading import Event
 
 from .models import Deck, Card, Playerscore
 
@@ -132,4 +134,13 @@ class UsersManagersTest(TestCase):
         with self.assertRaises(ValueError):
             User.objects.create_superuser(
                 username='super', email='super@user.com', password='foo', is_superuser=False)
+
+
+# class TestViews(TestCase):
+
+#     def test_project_list_GET(self):
+#         client = Client()
+#         response = client.get(index)
+#         self.assertEquals(response.status_code, 200)
+#         self.assertTemplateUsed(response, 'templates/Cardgame/index.html')
     
