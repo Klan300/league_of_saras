@@ -36,10 +36,9 @@ While playing this game, a player will have a time limit, the game will end when
 3. Setting the developer environment file. Create the new file name `.env` in the `league_of_saras` directory. Write this code in the file.
     ```
     DEBUG=False
-    SECRET_KEY="**YOUR OWN SECRET ID. CAN BE ANYTHING**"
+    SECRET_KEY="YOUR OWN SECRET ID. CAN BE ANYTHING"
     DB_NAME="db.sqlite3"
     GOOGLE_SECRET="wbtWrbSIBn2t-RrPgBdr2XHt"
-    FACEBOOK_SECRET="34efdbfc31f06a6eba2a3a816ab86c3f"
     ```
 4. Install requirements package.
     ```
