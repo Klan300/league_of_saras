@@ -67,6 +67,11 @@ class DeckModelTest(TestCase):
         self.assertEqual(c.count(), 0)
         c = Card.objects.filter(deck=3)
         self.assertEqual(c.count(), 2)
+    
+    def test_method_deck_number_of_card(self):
+        deck = Deck()
+        num = deck.number_of_card()
+        self.assertEqual(num, 6)
 
 
 class TestListPage(StaticLiveServerTestCase):
