@@ -173,7 +173,7 @@ class TestHomePage(StaticLiveServerTestCase):
         self.assertEqual(self.browser.current_url, expected_url)
         
 
-class TestSettingPage(StaticLiveServerTestCase):
+class TestSettingAndPlayPage(StaticLiveServerTestCase):
 
     @classmethod
     def setUpClass(cls, self):
@@ -225,7 +225,41 @@ class TestSettingPage(StaticLiveServerTestCase):
         self.browser.find_element_by_id('play').click()
         expected_url = self.live_server_url + reverse('playing') + reverse('7-11')
         self.assertEqual(expected_url, self.browser.current_url)
-        
+    
+    def test_play_correct(self):
+        self.browser.find_element_by_id('60').click()
+        self.browser.find_element_by_id('play').click()
+        for i in range(9):
+            sleep(1)
+            self.browser.find_element_by_id('correct').click()
+        sleep(1)
+        self.browser.find_element_by_class_name('btn btn-warning').click()
+        expected_url = self.live_server_url + reverse('playing') + reverse('7-11') + reverse('summary')
+        self.assertEqual(expected_url, self.browser.current_url)
+    
+    def test_play_redirect_to_main_page(self):
+        self.browser.find_element_by_id('60').click()
+        self.browser.find_element_by_id('play').click()
+        for i in range(9):
+            sleep(1)
+            self.browser.find_element_by_id('correct').click()
+        sleep(1)
+        self.browser.find_element_by_class_name('btn btn-warning').click()
+        self.browser.find_element_by_partial_link_text('menu').click()
+        expected_url = self.live_server_url + reverse('home')
+        self.assertEqual(expected_url, self.browser.current_url)
+    
+    def test_play_redirect_to_scoreboard(self):
+        self.browser.find_element_by_id('60').click()
+        self.browser.find_element_by_id('play').click()
+        for i in range(9):
+            sleep(1)
+            self.browser.find_element_by_id('correct').click()
+        sleep(1)
+        self.browser.find_element_by_class_name('btn btn-warning').click()
+        expected_url = self.live_server_url + reverse('scoreboard') + reverse("7-11") + reverse("60")
+        self.browser.find_element_by_partial_link_text('Scoreboard').click()
+        self.assertEqual(expected_url, self.browser.current_url)
 
 
 class UsersManagersTest(TestCase):
