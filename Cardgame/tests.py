@@ -156,7 +156,14 @@ class TestHomePage(StaticLiveServerTestCase):
         self.browser.find_element_by_partial_link_text('Scoreboard').click()
         expected_url = self.live_server_url + reverse('scoreboard') + reverse('7/11') + reverse('45')
         self.assertEqual(self.browser.current_url, expected_url)
-    
+
+    def test_main_page_redirect_to_logout(self):
+        # TODO Login before test this method
+        logout = self.browser.find_element_by_partial_link_text('logout')
+        self.assertEqual(logout, "logout")
+        logout.click()
+        self.assertEqual(self.current_url, self.live_server_url)
+
 
 class UsersManagersTest(TestCase):
     
