@@ -76,7 +76,7 @@ class DeckModelTest(TestCase):
         self.assertEqual(num, 6)
 
 
-class TestListPage(StaticLiveServerTestCase):
+class TestLoginPage(StaticLiveServerTestCase):
 
     def setUp(self):
         options = Options()
@@ -107,6 +107,55 @@ class TestListPage(StaticLiveServerTestCase):
         self.browser.find_element_by_partial_link_text('Google').click()
         url = urlparse(self.browser.current_url)
         self.assertEquals(url.netloc, 'accounts.google.com')
+    
+
+class TestHomePage(StaticLiveServerTestCase):
+
+    @classmethod
+    def setUpClass(cls, self):
+        self.deck1 = Deck.objects.create(deck_name='English')
+        self.deck2 = Deck.objects.create(deck_name='Science')
+        self.deck3 = Deck.objects.create(deck_name='Animal')
+        self.deck4 = Deck.objects.create(deck_name='7-11')
+        self.deck5 = Deck.objects.create(deck_name='House')
+        self.card1 = Card.objects.create(deck=self.deck1, card_name='Alphabet')
+        self.card2 = Card.objects.create(deck=self.deck3, card_name='Tiger')
+        self.card2 = Card.objects.create(deck=self.deck3, card_name='Cat')
+        self.card3 = Card.objects.create(deck=self.deck4, card_name='Milk')
+        self.card4 = Card.objects.create(deck=self.deck4, card_name='Milk')
+        self.card5 = Card.objects.create(deck=self.deck4, card_name='Milk')
+        self.card6 = Card.objects.create(deck=self.deck4, card_name='Taro')
+        self.card7 = Card.objects.create(deck=self.deck4, card_name='Pokki')
+        self.card8 = Card.objects.create(deck=self.deck4, card_name='Oishi')
+        self.card9 = Card.objects.create(deck=self.deck4, card_name='Ichitan')
+        self.card10 = Card.objects.create(deck=self.deck4, card_name='Dutchmill')
+        self.card11 = Card.objects.create(deck=self.deck4, card_name='Seaweed')
+        self.card12 = Card.objects.create(deck=self.deck4, card_name='Drug')
+    
+    def setUp(self):
+        options = Options()
+        options.headless = True
+        self.browser = webdriver.Firefox(options=options)
+
+    def tearDown(self):
+        self.browser.close()
+    
+    def test_main_page(self):
+        # TODO Login before test this method
+        self.browser.find_element_by_class_name('open-button').click()
+        topic = self.browser.find_element_by_class_name('topic')
+        self.assertEqual(topic, '7-11')
+        
+        list_button = self.browser.find_elements_by_class_name('bt')
+        self.assertListEqual(list_button, ['Scoreboard', 'Play'])
+    
+    def test_click_main_page_redirect_to_scoreboard(self):
+        # TODO Login before test this method
+        self.browser.find_element_by_class_name('open-button').click()
+        topic = self.browser.find_element_by_class_name('topic')
+        self.browser.find_element_by_partial_link_text('Scoreboard').click()
+        expected_url = self.live_server_url + reverse('scoreboard') + reverse('7/11') + reverse('45')
+        self.assertEqual(self.browser.current_url, expected_url)
     
 
 class UsersManagersTest(TestCase):
