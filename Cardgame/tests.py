@@ -80,7 +80,7 @@ class TestLoginPage(StaticLiveServerTestCase):
 
     def setUp(self):
         options = Options()
-        options.headless = True
+        options.headless = False
         self.browser = webdriver.Firefox(options=options)
         self.deck1 = Deck.objects.create(deck_name='English')
         self.deck2 = Deck.objects.create(deck_name='Science')
@@ -101,12 +101,18 @@ class TestLoginPage(StaticLiveServerTestCase):
         )
 
     def test_login_page_redirect_to_login_google(self):
-        self.browser.get(self.live_server_url)
+        self.browser.get(self.live_server_url + self.test_login)
         self.browser.find_element_by_id('btn').click()
         sleep(1)
         self.browser.find_element_by_partial_link_text('Google').click()
-        url = urlparse(self.browser.current_url)
-        self.assertEquals(url.netloc, 'accounts.google.com')
+        sleep(300)
+        self.browser.find_element_by_id("identifierId").send_keys('hijimmybug')
+        self.browser.find_element_by_id("identifierNext").click()
+        self.browser.find_element_by_name("password").send_keys('1qaz2wsx3edc4rfv5tghb6yhn7ujm')
+        self.browser.find_element_by_id("passwordNext").click()
+        sleep(60)
+        # url = urlparse(self.browser.current_url)
+        # self.assertEquals(url.netloc, 'accounts.google.com')
     
 
 class TestHomePage(StaticLiveServerTestCase):
